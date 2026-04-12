@@ -17,8 +17,6 @@
     --muted: #777;
     --border: rgba(200,160,32,0.2);
     --magenta: #d4206a;
-    --cyan: #00c8d4;
-    --purple: #6b1a8c;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -28,7 +26,6 @@
   nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); }
   .nav-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
   .nav-logo-img { height: 80px; width: auto; filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 3px rgba(200,160,32,0.4)) drop-shadow(0 0 6px rgba(200,160,32,0.2)); }
-  .nav-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--gold); letter-spacing: 0.05em; }
   .nav-links { display: flex; gap: 1.6rem; list-style: none; }
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.gold { color: var(--gold); }
@@ -36,17 +33,18 @@
   .nav-toggle span { width: 24px; height: 1px; background: var(--gold); display: block; }
 
   /* HERO */
-  .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; }
-  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.75); }
+  .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.6); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.1) 0%, transparent 25%, rgba(13,13,13,0.55) 80%, var(--dark) 100%); }
 
-  /* colour wash */
-  .hero-wash { display: none; }
-
-  .hero-content { position: absolute; bottom: 9%; left: 6%; max-width: 760px; }
-  .hero-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--magenta); margin-bottom: 0.8rem; }
+  .hero-content { position: absolute; bottom: 9%; left: 6%; max-width: 760px; z-index: 10; }
+  .hero-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+  
+  /* THE GLOWING TITLE */
   .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 8vw, 6.5rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.5rem; }
-  .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
+  .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5), 0 0 80px rgba(180,120,20,0.3); }
+  .hero-title em { font-style: italic; color: var(--gold-light); display: block; text-shadow: 0 0 15px rgba(255,220,120,0.3); }
+
   .hero-sub { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,160,32,0.7); margin-bottom: 2rem; }
   .hero-sub span { margin: 0 0.5rem; opacity: 0.4; }
   .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -55,8 +53,6 @@
   .btn-gold:hover { background: var(--gold-light); }
   .btn-outline { padding: 0.8rem 2rem; border: 1px solid rgba(200,160,32,0.6); color: var(--gold); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
   .btn-outline:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
-  .btn-magenta { padding: 0.8rem 2rem; background: var(--magenta); color: #fff; text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
-  .btn-magenta:hover { background: #e8307a; }
 
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
@@ -66,20 +62,17 @@
   .body-text { font-size: 0.95rem; line-height: 1.85; color: #aaa; max-width: 680px; margin-bottom: 1.2rem; }
   hr.divider { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
 
+  /* PHOTO FIXES (Contain instead of Zoom) */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+  .col-img { overflow: hidden; background: #000; border: 1px solid var(--border); }
+  .col-img img { width: 100%; aspect-ratio: 3/2; object-fit: contain; filter: brightness(0.85); transition: transform 0.6s; }
+
   /* STATS */
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin-top: 3rem; }
   .stat-cell { padding: 2rem 1.5rem; border-right: 1px solid var(--border); }
   .stat-cell:last-child { border-right: none; }
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 400; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
   .stat-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-
-  /* PHOTO + TEXT */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-  .two-col.flip { direction: rtl; }
-  .two-col.flip > * { direction: ltr; }
-  .col-img { overflow: hidden; }
-  .col-img img { width: 100%; aspect-ratio: 3/2; object-fit: cover; object-position: center; filter: brightness(0.85); transition: transform 0.6s; }
-  .col-img:hover img { transform: scale(1.03); }
 
   /* BAND MEMBERS */
   .band-section { background: var(--mid); }
@@ -88,7 +81,6 @@
   .member-instrument { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
   .member-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #fff; }
 
-  /* BOOKING CONFIG */
   .booking-section { background: var(--deep); }
   .config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
   .config-card { background: var(--card); padding: 2rem 1.8rem; }
@@ -96,23 +88,12 @@
   .config-size { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #fff; margin-bottom: 0.5rem; }
   .config-desc { font-size: 0.82rem; color: #999; line-height: 1.6; }
 
-  /* PRESS */
   .press-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
   .press-card { background: var(--card); padding: 2.5rem 2rem; position: relative; }
   .press-card::before { content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--gold); opacity: 0.2; position: absolute; top: 1rem; left: 1.5rem; line-height: 1; }
   .press-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: #ccc; line-height: 1.65; margin-bottom: 1.2rem; }
   .press-source { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
 
-  /* STAGE PLOT */
-  .stage-section { background: var(--dark); }
-  .stage-diagram { border: 1px solid var(--border); padding: 2rem; margin-top: 2rem; max-width: 600px; }
-  .stage-row { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
-  .stage-pos { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--card); border: 1px solid var(--border); padding: 0.5rem 0.8rem; color: var(--muted); text-align: center; }
-  .stage-pos.gold { border-color: var(--gold); color: var(--gold); }
-  .stage-label { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); text-align: center; margin-bottom: 0.4rem; }
-  .stage-front { border-top: 2px solid var(--gold); margin-top: 0.8rem; padding-top: 0.8rem; text-align: center; font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,160,32,0.4); }
-
-  /* CTA BACK */
   .back-cta { background: linear-gradient(135deg, #0d0d0d 0%, #1a0a00 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; text-align: center; }
 
   footer { background: #080808; border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
@@ -130,14 +111,11 @@
     .nav-toggle { display: flex; }
     .hero-content { left: 5%; right: 5%; bottom: 7%; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
-    .stat-cell { border-right: none; border-bottom: 1px solid var(--border); }
-    .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
-    .two-col, .two-col.flip { grid-template-columns: 1fr; gap: 2rem; direction: ltr; }
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .config-grid { grid-template-columns: 1fr; }
     .press-grid { grid-template-columns: 1fr; }
     .section-inner { padding: 3rem 1.2rem; }
     footer { flex-direction: column; text-align: center; }
-    .footer-links { flex-wrap: wrap; justify-content: center; }
   }
 </style>
 </head>
@@ -161,14 +139,12 @@
   </button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <img class="hero-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="Electric Lady Big Band">
   <div class="hero-overlay"></div>
-  <div class="hero-wash"></div>
   <div class="hero-content">
     <div class="hero-label">Denny Ilett presents</div>
-    <h1 class="hero-title">Electric Lady<em>Big Band</em></h1>
+    <h1 class="hero-title"><span class="glow-strong">Electric Lady</span><em>Big Band</em></h1>
     <div class="hero-sub">Jimi Hendrix <span>·</span> Reimagined <span>·</span> 16-Piece Jazz Orchestra</div>
     <div class="hero-buttons">
       <a href="index.html#contact" class="btn-gold">Book the Band</a>
@@ -177,144 +153,70 @@
   </div>
 </section>
 
-<!-- HENDRIX QUOTE -->
 <div style="background:var(--mid);border-bottom:1px solid var(--border);padding:3rem 2rem;text-align:center;">
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;max-width:700px;margin:0 auto 0.8rem;line-height:1.4;text-shadow:0 0 20px rgba(255,220,120,0.9),0 0 40px rgba(220,160,40,0.6),0 0 80px rgba(180,120,20,0.4);">"I would like a big band that I can write and conduct for."</p>
-  <p style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);text-shadow:0 0 15px rgba(200,160,32,0.8),0 0 30px rgba(200,160,32,0.4);">— Jimi Hendrix</p>
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;max-width:700px;margin:0 auto 0.8rem;line-height:1.4;text-shadow: 0 0 15px rgba(255,220,120,0.6);">"I would like a big band that I can write and conduct for."</p>
+  <p style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);text-shadow: 0 0 10px rgba(200,160,32,0.5);">— Jimi Hendrix</p>
 </div>
 
-<!-- INTRO -->
 <section style="background:var(--dark)">
   <div class="section-inner">
     <div class="label">The Concept</div>
     <h2 class="big-title">Hendrix as you've<em>never heard him</em></h2>
     <div class="two-col">
       <div>
-        <p class="body-text" style="max-width:100%">The Electric Lady Big Band is a 16-piece jazz orchestra led by guitarist, vocalist and arranger Denny Ilett — reimagining the music of Jimi Hendrix through the lens of jazz, big band, soul and psychedelia. Every arrangement is written by Denny, drawing on decades of experience to honour Hendrix's genius while creating something entirely new.</p>
-        <p class="body-text" style="max-width:100%">Since its founding in 2018, the band has become one of the most celebrated live acts in the UK — with thirty-two sold-out performances at Ronnie Scott's Jazz Club and appearances at Cheltenham Jazz Festival, among many others. The project has produced two studio albums.</p>
-        <p class="body-text" style="max-width:100%">"Perhaps this was something like what Hendrix had in mind." — <em>Bebop Spoken Here</em></p>
+        <p class="body-text" style="max-width:100%">The Electric Lady Big Band is a 16-piece jazz orchestra led by guitarist, vocalist and arranger Denny Ilett — reimagining the music of Jimi Hendrix through the lens of jazz, big band, soul and psychedelia.</p>
+        <p class="body-text" style="max-width:100%">Since its founding in 2018, the band has become one of the most celebrated live acts in the UK — with thirty-two sold-out performances at Ronnie Scott's Jazz Club.</p>
       </div>
       <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="Electric Lady Big Band at Ronnie Scott's">
+        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="Electric Lady Big Band">
       </div>
     </div>
 
     <div class="stats-grid">
-      <div class="stat-cell"><div class="stat-num">32</div><div class="stat-label">Sold-Out Ronnie Scott's Shows</div></div>
+      <div class="stat-cell"><div class="stat-num">32</div><div class="stat-label">Sold-Out Shows</div></div>
       <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">Piece Orchestra</div></div>
       <div class="stat-cell"><div class="stat-num">2</div><div class="stat-label">Studio Albums</div></div>
-      <div class="stat-cell"><div class="stat-num">2018</div><div class="stat-label">Founded, Bristol</div></div>
+      <div class="stat-cell"><div class="stat-num">2018</div><div class="stat-label">Founded</div></div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- SECOND PHOTO -->
 <section style="background:var(--deep)">
   <div class="section-inner">
     <div class="label">Live</div>
     <h2 class="big-title">An explosive<em>live experience</em></h2>
-    <div class="two-col flip">
-      <div>
-        <p class="body-text" style="max-width:100%">The Electric Lady Big Band delivers a live experience that is unlike anything else on the UK jazz scene. Brass, rhythm, guitar and vocals combine to create a wall of sound that fills any room — from intimate jazz clubs to major festival stages.</p>
-        <p class="body-text" style="max-width:100%">The band interprets Hendrix's Electric Ladyland album in full, plus tracks from across his catalogue — all reimagined as big band arrangements that reveal new depths in music already considered some of the greatest ever written.</p>
-        <p class="body-text" style="max-width:100%">Denny leads the band from downstage, conducting, playing and singing — an arranger and performer at the top of his craft.</p>
-        <a href="index.html#contact" class="btn-outline">Enquire About Booking</a>
-      </div>
-      <div class="col-img">
+    <div class="two-col">
+       <div class="col-img">
         <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb2.jpg" alt="Electric Lady Big Band live">
+      </div>
+      <div>
+        <p class="body-text" style="max-width:100%">The Electric Lady Big Band delivers a live experience that is unlike anything else on the UK jazz scene. The band interprets Hendrix's Electric Ladyland album in full, plus tracks from across his catalogue.</p>
+        <a href="index.html#contact" class="btn-outline">Enquire About Booking</a>
       </div>
     </div>
   </div>
 </section>
 
-<hr class="divider">
-
-<!-- BAND MEMBERS -->
 <section class="band-section">
   <div class="section-inner">
     <div class="label">The Musicians</div>
     <h2 class="big-title">Some of the finest jazz<em>players in the UK</em></h2>
-    <p class="body-text">The Electric Lady Big Band brings together an extraordinary ensemble of jazz musicians. Featured players include some of the most respected names in British jazz.</p>
     <div class="members-grid">
       <div class="member-card"><div class="member-instrument">Guitar / Vocals / Leader</div><div class="member-name">Denny Ilett</div></div>
       <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Iain Ballamy</div></div>
-      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Kevin Figes</div></div>
       <div class="member-card"><div class="member-instrument">Bass Guitar</div><div class="member-name">Laurence Cottle</div></div>
       <div class="member-card"><div class="member-instrument">Trombone</div><div class="member-name">Winston Rollins</div></div>
       <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Yazz Ahmed</div></div>
       <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Laura Jurd</div></div>
-      <div class="member-card"><div class="member-instrument">Brass · Rhythm · Woodwind</div><div class="member-name">+ 10 piece ensemble</div></div>
     </div>
   </div>
 </section>
-
-<hr class="divider">
-
-<!-- BOOKING CONFIGURATIONS -->
-<section class="booking-section">
-  <div class="section-inner">
-    <div class="label">Booking</div>
-    <h2 class="big-title">Flexible<em>configurations</em></h2>
-    <p class="body-text">The Electric Lady Big Band can be booked in several configurations to suit your venue, budget and production requirements.</p>
-    <div class="config-grid">
-      <div class="config-card">
-        <div class="config-title">Full Orchestra</div>
-        <div class="config-size">16-piece</div>
-        <div class="config-desc">The complete Electric Lady Big Band — all brass, rhythm section, guitar and vocals. Ideal for major festivals, arts centres and theatres.</div>
-      </div>
-      <div class="config-card">
-        <div class="config-title">Core Band</div>
-        <div class="config-size">10-piece</div>
-        <div class="config-desc">A streamlined version of the band retaining the full sonic impact. Perfect for jazz clubs and mid-size venues.</div>
-      </div>
-      <div class="config-card">
-        <div class="config-title">Hybrid</div>
-        <div class="config-size">Flexible</div>
-        <div class="config-desc">Denny brings a core group and supplements with locally hired musicians reading his charts — a key selling point for international touring and overseas festivals.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- PRESS -->
-<section style="background:var(--dark)">
-  <div class="section-inner">
-    <div class="label">Press &amp; Reviews</div>
-    <h2 class="big-title">What they're<em>saying</em></h2>
-    <div class="press-grid">
-      <div class="press-card"><p class="press-quote">"The band interprets Hendrix with power, precision, passion and deep respect — a reminder of the true genius of Jimi as composer and musician, a legacy far beyond the popular guitar hero image."</p><div class="press-source">Ronnie Scott's Jazz Club</div></div>
-      <div class="press-card"><p class="press-quote">"A unique and heartfelt testimony to the music and legacy of Jimi Hendrix. Under the stewardship of Denny Ilett, the Electric Lady Big Band has produced something remarkable. Let it continue to thrive in eternity."</p><div class="press-source">London Jazz News — Frank Griffith</div></div>
-      <div class="press-card"><p class="press-quote">"It's clear this project is more than just a Hendrix experience. The 16-piece band created a fantastic bursting sound that enveloped the audience — the jazz element was strongly and impressively represented."</p><div class="press-source">UK Jazz News</div></div>
-      <div class="press-card"><p class="press-quote">"Perhaps this was something like what Hendrix had in mind. An explosive start — the band had a ball from first note to last."</p><div class="press-source">Bebop Spoken Here</div></div>
-      <div class="press-card"><p class="press-quote">"Ilett's remarkable skills as guitarist, vocalist and arranger successfully realise Hendrix's reputation as a visionary in a large ensemble setting."</p><div class="press-source">Jazz Music Archives</div></div>
-      <div class="press-card"><p class="press-quote">"One of the most original and exciting live acts on the UK jazz scene."</p><div class="press-source">London Jazz News</div></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- BACK CTA -->
-<div class="back-cta">
-  <div class="label" style="justify-content:center;max-width:200px;margin:0 auto 1rem;">Book the Band</div>
-  <h2 class="big-title" style="text-align:center;max-width:600px;margin:0 auto 1.5rem;">Ready to bring the<em>Electric Lady Big Band</em> to your venue?</h2>
-  <p class="body-text" style="text-align:center;margin:0 auto 2.5rem;max-width:500px;">Available for festivals, arts centres, theatres, jazz clubs and corporate events. Get in touch to discuss dates, configurations and fees.</p>
-  <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-    <a href="index.html#contact" class="btn-gold">Get in Touch</a>
-    <a href="index.html" class="btn-outline">Back to Denny Ilett</a>
-  </div>
-</div>
 
 <footer>
   <div class="footer-left">Denny Ilett · Electric Lady Big Band</div>
   <ul class="footer-links">
     <li><a href="https://www.instagram.com/dennyilett/" target="_blank">Instagram</a></li>
     <li><a href="https://www.facebook.com/dennyilett/" target="_blank">Facebook</a></li>
-    <li><a href="https://dennyilett.bandcamp.com" target="_blank">Bandcamp</a></li>
     <li><a href="index.html">Denny Ilett</a></li>
   </ul>
   <div class="footer-copy">© 2026 Denny Ilett · All Rights Reserved</div>
@@ -324,14 +226,9 @@
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
   });
-
   function toggleNav() {
     document.getElementById('navLinks').classList.toggle('open');
   }
-
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-  });
 </script>
 </body>
 </html>

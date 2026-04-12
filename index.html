@@ -33,7 +33,6 @@
   .nav-toggle span { width: 24px; height: 1px; background: var(--gold); display: block; }
 
   .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
-  /* FIXED: Adjusted hero position to keep face/guitar in frame */
   .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: brightness(0.55); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, transparent 35%, rgba(13,13,13,0.75) 80%, var(--dark) 100%); }
   .hero-content { position: absolute; bottom: 9%; left: 6%; z-index: 10; }
@@ -56,8 +55,9 @@
   .carousel { position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; background: #000; }
   .carousel-track { display: flex; transition: transform 0.5s ease; }
   .carousel-slide { min-width: 100%; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
-  /* FIXED: Changed object-fit to 'contain' to stop extreme zooming */
+  /* FIXED: Use contain to ensure the whole guitar/person is visible */
   .carousel-slide img { width: 100%; height: 560px; object-fit: contain; object-position: center; }
+  
   .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(13,13,13,0.65); border: 1px solid var(--gold); color: var(--gold); width: 44px; height: 44px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 2; }
   .carousel-btn:hover { background: var(--gold); color: var(--dark); }
   .carousel-btn.prev { left: 1rem; }
@@ -91,7 +91,6 @@
   .two-col.flip { direction: rtl; }
   .two-col.flip > * { direction: ltr; }
   .col-img { overflow: hidden; background: #000; border: 1px solid var(--border); }
-  /* FIXED: Added 'contain' here to prevent portraits from being cut off */
   .col-img img { width: 100%; aspect-ratio: 4/5; object-fit: contain; object-position: center top; filter: brightness(0.88); transition: transform 0.6s; }
   .col-img:hover img { transform: scale(1.03); }
   .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }

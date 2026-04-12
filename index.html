@@ -32,10 +32,11 @@
   .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
   .nav-toggle span { width: 24px; height: 1px; background: var(--gold); display: block; }
 
-  .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; }
-  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: brightness(0.55); }
+  .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
+  /* FIXED: Adjusted hero position to keep face/guitar in frame */
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: brightness(0.55); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, transparent 35%, rgba(13,13,13,0.75) 80%, var(--dark) 100%); }
-  .hero-content { position: absolute; bottom: 9%; left: 6%; max-width: 680px; }
+  .hero-content { position: absolute; bottom: 9%; left: 6%; z-index: 10; }
   .hero-tags { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
   .hero-tags span { margin: 0 0.4rem; opacity: 0.5; }
   .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.6rem; font-style: italic; }
@@ -52,10 +53,11 @@
   .btn-outline:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
 
   .carousel-section { background: var(--deep); padding: 3rem 0 0; }
-  .carousel { position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; }
+  .carousel { position: relative; overflow: hidden; max-width: 1200px; margin: 0 auto; background: #000; }
   .carousel-track { display: flex; transition: transform 0.5s ease; }
-  .carousel-slide { min-width: 100%; overflow: hidden; }
-  .carousel-slide img { width: 100%; height: 560px; object-fit: cover; object-position: center; }
+  .carousel-slide { min-width: 100%; overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center; }
+  /* FIXED: Changed object-fit to 'contain' to stop extreme zooming */
+  .carousel-slide img { width: 100%; height: 560px; object-fit: contain; object-position: center; }
   .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(13,13,13,0.65); border: 1px solid var(--gold); color: var(--gold); width: 44px; height: 44px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 2; }
   .carousel-btn:hover { background: var(--gold); color: var(--dark); }
   .carousel-btn.prev { left: 1rem; }
@@ -88,14 +90,15 @@
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
   .two-col.flip { direction: rtl; }
   .two-col.flip > * { direction: ltr; }
-  .col-img { overflow: hidden; }
-  .col-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: center top; filter: brightness(0.88); transition: transform 0.6s; }
+  .col-img { overflow: hidden; background: #000; border: 1px solid var(--border); }
+  /* FIXED: Added 'contain' here to prevent portraits from being cut off */
+  .col-img img { width: 100%; aspect-ratio: 4/5; object-fit: contain; object-position: center top; filter: brightness(0.88); transition: transform 0.6s; }
   .col-img:hover img { transform: scale(1.03); }
   .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
   .tag { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--border); padding: 0.3rem 0.7rem; }
 
   .singer-section { background: var(--dark); }
-  .singer-hero { position: relative; height: 70vh; min-height: 500px; overflow: hidden; }
+  .singer-hero { position: relative; height: 70vh; min-height: 500px; overflow: hidden; background: #000; }
   .singer-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: brightness(0.5); }
   .singer-hero-text { position: absolute; bottom: 8%; left: 6%; }
   .singer-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 600; color: #fff; line-height: 1; }
@@ -206,11 +209,11 @@
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett"></div>
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett"></div>
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett" style="object-position:center 5%;"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett"></div>
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett"></div>
     </div>
-    <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8592;</button>
-    <button class="carousel-btn next" onclick="moveCarousel(1)">&#8594;</button>
+    <button class="carousel-btn prev" onclick="moveCarousel(-1)">←</button>
+    <button class="carousel-btn next" onclick="moveCarousel(1)">→</button>
   </div>
   <div class="carousel-dots" id="carouselDots"></div>
 </section>
@@ -231,9 +234,9 @@
     <div class="highlights">
       <div class="highlight-item"><div class="highlight-num">01</div><div><div class="highlight-title">Musical Director — Lillian Boutté</div><div class="highlight-desc">Toured globally for over two decades with the New Orleans legend — official musical ambassador for the city of New Orleans, and only the second artist ever to hold that title after Louis Armstrong</div></div></div>
       <div class="highlight-item"><div class="highlight-num">02</div><div><div class="highlight-title">Electric Lady Big Band</div><div class="highlight-desc">Founded 2018 — two albums, Ronnie Scott's residency, major UK festivals</div></div></div>
-      <div class="highlight-item"><div class="highlight-num">03</div><div><div class="highlight-title">Bristol Jazz &amp; Blues Festival</div><div class="highlight-desc">Co-founder and Artistic Director — brought Dr. John, Maceo Parker, Lee Konitz and John Scofield to Bristol</div></div></div>
+      <div class="highlight-item"><div class="highlight-num">03</div><div><div class="highlight-title">Bristol Jazz & Blues Festival</div><div class="highlight-desc">Co-founder and Artistic Director — brought Dr. John, Maceo Parker, Lee Konitz and John Scofield to Bristol</div></div></div>
       <div class="highlight-item"><div class="highlight-num">04</div><div><div class="highlight-title">JTC Guitar</div><div class="highlight-desc">Educational content creator for one of the world's leading online guitar platforms</div></div></div>
-      <div class="highlight-item"><div class="highlight-num">05</div><div><div class="highlight-title">Guitarist Magazine, Guitar World &amp; UK Jazz News</div><div class="highlight-desc">Regular contributor and commentator across four decades</div></div></div>
+      <div class="highlight-item"><div class="highlight-num">05</div><div><div class="highlight-title">Guitarist Magazine, Guitar World & UK Jazz News</div><div class="highlight-desc">Regular contributor and commentator across four decades</div></div></div>
       <div class="highlight-item"><div class="highlight-num">06</div><div><div class="highlight-title">Collaborators</div><div class="highlight-desc">Pee Wee Ellis, Charles Hazlewood, Will Gregory (Goldfrapp), Adrian Utley (Portishead), Bobby Shew, Paul Jones, Lewis Taylor, Lillian Boutté</div></div></div>
     </div>
   </div>
@@ -243,14 +246,14 @@
 
 <section id="guitarist" class="guitarist-section">
   <div class="section-inner">
-    <div class="label">Guitarist &amp; Arranger</div>
-    <h2 class="big-title">Guitarist &amp;<em>Arranger</em></h2>
+    <div class="label">Guitarist & Arranger</div>
+    <h2 class="big-title">Guitarist &<em>Arranger</em></h2>
     <div class="two-col">
       <div>
         <p class="body-text" style="max-width:100%">A self-taught guitarist with a voice entirely his own, Denny's playing draws on the deepest roots of jazz, blues and beyond. His intricate chords, smooth melodies and improvisational style bring a fresh perspective to classic and contemporary material — single-note lines, jazz comping, big band writing and beyond, always in service of the music, never at its expense.</p>
         <div class="tags"><span class="tag">Self-Taught</span><span class="tag">Jazz</span><span class="tag">Blues</span><span class="tag">Rock</span><span class="tag">Soul</span><span class="tag">Funk</span></div>
         <p class="body-text" style="max-width:100%">As an arranger, Denny is one of the most versatile in the UK. His orchestral work extends beyond jazz — large-scale contemporary classical and cross-genre projects, conducting as well as arranging, always seeking the unexpected connection between musical worlds.</p>
-        <div class="tags"><span class="tag">Big Band Charts</span><span class="tag">Orchestral</span><span class="tag">Contemporary Classical</span><span class="tag">Rock &amp; Funk</span><span class="tag">Film &amp; Stage</span></div>
+        <div class="tags"><span class="tag">Big Band Charts</span><span class="tag">Orchestral</span><span class="tag">Contemporary Classical</span><span class="tag">Rock & Funk</span><span class="tag">Film & Stage</span></div>
         <a href="#contact" class="btn-outline">Book Denny</a>
       </div>
       <div class="col-img">
@@ -291,7 +294,7 @@
 <section id="lessons" class="lessons-section">
   <div class="section-inner">
     <div class="label">Tuition</div>
-    <h2 class="big-title">Jazz Guitar<em>Lessons &amp; Masterclasses</em></h2>
+    <h2 class="big-title">Jazz Guitar<em>Lessons & Masterclasses</em></h2>
     <p class="body-text">Denny Ilett offers jazz guitar lessons from his base in Henley-on-Thames, making him ideally placed to teach students across Berkshire, South Oxfordshire and the surrounding area — including Reading, Wallingford, Didcot, Marlow, Maidenhead and beyond. Online lessons available worldwide.</p>
     <p class="body-text">With over 40 years of professional performing experience, Denny is a patient, inspiring and highly knowledgeable teacher. His <em>Jazz Demystification</em> approach strips away the theory and puts the music first — fretboard logic, real improvisation, and the stylistic detail that separates a jazz guitarist from someone who just knows the scales. Lessons cover jazz harmony, chord theory, improvisation, jazz standards, blues technique, fingerpicking, sight-reading, composition and arranging.</p>
     <p class="body-text">Whether you are a complete beginner, an intermediate player looking to develop your jazz vocabulary, or an advanced musician seeking to refine your improvisation and arrangement skills, Denny tailors each lesson to your individual goals. All levels welcome.</p>
@@ -301,10 +304,10 @@
     </div>
     <div class="label">Teaching Background</div>
     <div class="teaching-grid">
-      <div class="teaching-card"><div class="teaching-title">University Level</div><div class="teaching-desc">Bristol University &amp; Bath Spa University — degree-level jazz guitar</div></div>
+      <div class="teaching-card"><div class="teaching-title">University Level</div><div class="teaching-desc">Bristol University & Bath Spa University — degree-level jazz guitar</div></div>
       <div class="teaching-card"><div class="teaching-title">International Guitar Foundation</div><div class="teaching-desc">Summer school workshops</div></div>
-      <div class="teaching-card"><div class="teaching-title">JTC Guitar</div><div class="teaching-desc">Featured artist — <em>Unlocking Jazz Standards</em> &amp; <em>Blues Essentials</em> masterclass series</div></div>
-      <div class="teaching-card"><div class="teaching-title">Global Masterclasses</div><div class="teaching-desc">Europe, Australia &amp; USA — Jazz Demystification workshops</div></div>
+      <div class="teaching-card"><div class="teaching-title">JTC Guitar</div><div class="teaching-desc">Featured artist — <em>Unlocking Jazz Standards</em> & <em>Blues Essentials</em> masterclass series</div></div>
+      <div class="teaching-card"><div class="teaching-title">Global Masterclasses</div><div class="teaching-desc">Europe, Australia & USA — Jazz Demystification workshops</div></div>
       <div class="teaching-card"><div class="teaching-title">Guitarist Magazine</div><div class="teaching-desc">Regular contributor — columns on jazz, blues and forgotten guitar heroes</div></div>
       <div class="teaching-card"><div class="teaching-title">Clifton College, Bristol</div><div class="teaching-desc">12 years as guitar tutor</div></div>
     </div>
@@ -322,7 +325,7 @@
 
 <section id="press" class="press-section">
   <div class="section-inner">
-    <div class="label">Press &amp; Reviews</div>
+    <div class="label">Press & Reviews</div>
     <h2 class="big-title">What They're<em>Saying</em></h2>
     <div class="press-grid">
       <div class="press-card"><p class="press-quote">"A knockout guitarist — soulful and jazz-tinged. Ilett plays with the kind of conviction that reminds you why this music still matters."</p><div class="press-source">Guitarist Magazine</div></div>
@@ -340,7 +343,7 @@
 <section id="music" class="music-section">
   <div class="section-inner">
     <div class="label">Listen</div>
-    <h2 class="big-title">Music &amp;<em>Recordings</em></h2>
+    <h2 class="big-title">Music &<em>Recordings</em></h2>
     <div class="music-grid">
       <a href="https://dennyilett.bandcamp.com" target="_blank" class="music-card"><div class="music-platform">Bandcamp</div><div class="music-title">Denny Ilett on Bandcamp</div><div class="music-desc">Full albums, live recordings and singles. Including the Electric Lady Big Band catalogue.</div><div class="music-arrow">→</div></a>
       <a href="https://open.spotify.com/search/Denny%20Ilett" target="_blank" class="music-card"><div class="music-platform">Spotify</div><div class="music-title">Stream on Spotify</div><div class="music-desc">Listen to Denny Ilett and the Electric Lady Big Band across all major streaming platforms.</div><div class="music-arrow">→</div></a>

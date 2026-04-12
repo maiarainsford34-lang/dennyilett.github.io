@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Denny Ilett – Guitarist · Vocalist · Bandleader · Arranger</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,400;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --gold: #c8a020;
@@ -21,16 +21,25 @@
   html { scroll-behavior: smooth; }
   body { background: var(--dark); color: var(--text); font-family: 'Lato', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: background 0.3s; }
-  nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); }
+  /* NAVIGATION WITH BIGGER LOGO FIXED */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; 
+    padding: 1.5rem 2.5rem; /* Increased padding for breathing room */
+    background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: background 0.3s, padding 0.3s; }
+  nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); padding: 1rem 2.5rem; }
   .nav-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-  .nav-logo-img { height: 80px; width: auto; filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 3px rgba(200,160,32,0.4)) drop-shadow(0 0 6px rgba(200,160,32,0.2)); }
+  
+  /* FIXED: The Logo is now 120px (50% bigger than 80px) */
+  .nav-logo-img { height: 120px; width: auto; filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 3px rgba(200,160,32,0.4)) drop-shadow(0 0 6px rgba(200,160,32,0.2)); }
+  
   .nav-links { display: flex; gap: 1.6rem; list-style: none; }
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
   .nav-links a:hover, .nav-links a.gold { color: var(--gold); }
-  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
-  .nav-toggle span { width: 24px; height: 1px; background: var(--gold); display: block; }
+  
+  /* MOBILE TOGGLE FIXED */
+  .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; z-index: 101; }
+  .nav-toggle span { width: 24px; height: 1px; background: var(--gold); display: block; transition: all 0.3s; }
 
+  /* HERO */
   .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
   .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: brightness(0.55); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, transparent 35%, rgba(13,13,13,0.75) 80%, var(--dark) 100%); }
@@ -39,7 +48,6 @@
   .hero-tags span { margin: 0 0.4rem; opacity: 0.5; }
   .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.6rem; font-style: italic; }
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5), 0 0 80px rgba(180,120,20,0.3); }
-  .hero-name .glow-soft { text-shadow: 0 0 10px rgba(255,220,120,0.25), 0 0 20px rgba(220,160,40,0.15); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
   .hero-sub { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(200,160,32,0.7); margin-bottom: 2rem; }
   .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -47,13 +55,7 @@
   /* SMOOTH FADE CAROUSEL */
   .carousel-section { background: var(--deep); padding: 3rem 0 0; }
   .carousel { position: relative; height: 560px; max-width: 1200px; margin: 0 auto; background: #000; overflow: hidden; }
-  .carousel-slide { 
-    position: absolute; 
-    top: 0; left: 0; width: 100%; height: 100%; 
-    opacity: 0; 
-    transition: opacity 1.5s ease-in-out; /* Smooth Fade */
-    display: flex; align-items: center; justify-content: center;
-  }
+  .carousel-slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 1.5s ease-in-out; display: flex; align-items: center; justify-content: center; }
   .carousel-slide.active { opacity: 1; z-index: 1; }
   .carousel-slide img { width: 100%; height: 100%; object-fit: contain; }
 
@@ -61,12 +63,11 @@
   .carousel-btn:hover { background: var(--gold); color: var(--dark); }
   .carousel-btn.prev { left: 1rem; }
   .carousel-btn.next { right: 1rem; }
-  
   .carousel-dots { display: flex; justify-content: center; gap: 8px; padding: 1.2rem 0; background: var(--deep); }
   .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); cursor: pointer; transition: background 0.3s; }
   .dot.active { background: var(--gold); transform: scale(1.2); }
 
-  /* REST OF STYLE REMAINS SAME */
+  /* MAIN STYLES */
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
   .label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -74,8 +75,7 @@
   .big-title em { font-style: italic; color: var(--gold-light); display: block; }
   .body-text { font-size: 0.95rem; line-height: 1.85; color: #aaa; max-width: 680px; margin-bottom: 1.2rem; }
   hr.divider { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
-  
-  /* GRID STYLES */
+
   .stats-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 3rem; }
   .stat-cell { padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); }
   .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
@@ -88,7 +88,9 @@
   
   /* BUTTONS */
   .btn-gold { padding: 0.8rem 2rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
+  .btn-gold:hover { background: var(--gold-light); }
   .btn-outline { padding: 0.8rem 2rem; border: 1px solid rgba(200,160,32,0.6); color: var(--gold); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
+  .btn-outline:hover { background: var(--gold); color: var(--dark); border-color: var(--gold); }
 
   /* CONTACT FORM */
   .contact-section { background: var(--dark); }
@@ -98,13 +100,26 @@
   .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 2.5rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; }
 
   footer { background: #080808; border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+  .footer-left { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); }
   .footer-copy { font-size: 0.72rem; color: #444; width: 100%; text-align: center; margin-top: 0.5rem; }
 
+  /* MOBILE RESPONSIVE FIXES */
   @media (max-width: 768px) {
+    nav { padding: 1rem 1.2rem; }
+    nav.scrolled { padding: 0.8rem 1.2rem; }
+    /* Mobile logo size adjustment for smaller screens */
+    .nav-logo-img { height: 90px; } 
+    
+    .nav-links { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.99); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; z-index: 100; }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1rem; }
+    .nav-toggle { display: flex; }
+
     .carousel { height: 350px; }
-    .nav-links { display: none; }
-    .two-col { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
+    .section-inner { padding: 3rem 1.2rem; }
+    footer { flex-direction: column; text-align: center; gap: 0.5rem; }
   }
 </style>
 </head>
@@ -114,7 +129,7 @@
   <a href="#" class="nav-brand">
     <img class="nav-logo-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny-logo.jpg" alt="Denny Ilett">
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="elbb.html" class="gold">Electric Lady</a></li>
     <li><a href="#singer">Singer</a></li>
@@ -124,6 +139,9 @@
     <li><a href="#music">Music</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
 <section class="hero">
@@ -147,7 +165,6 @@
     <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
     <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett"></div>
     <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett"></div>
-    
     <button class="carousel-btn prev" onclick="changeSlide(-1)">←</button>
     <button class="carousel-btn next" onclick="changeSlide(1)">→</button>
   </div>
@@ -187,46 +204,33 @@
 </footer>
 
 <script>
-  // FADE CAROUSEL LOGIC
   let currentSlide = 0;
   const slides = document.querySelectorAll('.carousel-slide');
   const dotContainer = document.getElementById('carouselDots');
-
-  // Create dots
   slides.forEach((_, i) => {
     const dot = document.createElement('div');
     dot.className = 'dot' + (i === 0 ? ' active' : '');
     dot.onclick = () => showSlide(i);
     dotContainer.appendChild(dot);
   });
-
   const dots = document.querySelectorAll('.dot');
-
   function showSlide(index) {
-    // Handle Seamless Looping
     if (index >= slides.length) index = 0;
     if (index < 0) index = slides.length - 1;
-
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
-    
     currentSlide = index;
-    
     slides[currentSlide].classList.add('active');
     dots[currentSlide].classList.add('active');
   }
-
-  function changeSlide(step) {
-    showSlide(currentSlide + step);
-  }
-
-  // Auto Play
+  function changeSlide(step) { showSlide(currentSlide + step); }
   setInterval(() => changeSlide(1), 5000);
-
-  // Nav Scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
   });
+  function toggleNav() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
 </script>
 </body>
 </html>

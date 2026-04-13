@@ -21,31 +21,30 @@
   html { scroll-behavior: smooth; }
   body { background: var(--dark); color: var(--text); font-family: 'Lato', sans-serif; font-weight: 300; overflow-x: hidden; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2.5rem; background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: background 0.3s; }
-  nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); }
-  .nav-brand { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-  .nav-logo-img { height: 80px; width: auto; filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 3px rgba(200,160,32,0.4)); }
+  /* NAVIGATION - MATCHED TO MAIN PAGE */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2.5rem; background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: all 0.3s; }
+  nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); padding: 0.8rem 2.5rem; }
+  .nav-brand { display: flex; align-items: center; text-decoration: none; }
+  
+  /* LOGO SIZE MATCHED TO 120PX */
+  .nav-logo-img { 
+    height: 120px; 
+    width: auto; 
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 5px rgba(200,160,32,0.3)); 
+  }
+  
   .nav-links { display: flex; gap: 1.6rem; list-style: none; }
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
 
-  /* HERO - BRIGHTNESS ADJUSTED */
+  /* HERO */
   .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
-  .hero-img { 
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-    object-position: center 30%; 
-    filter: brightness(1.1); /* INCREASED FROM 0.6 TO 1.1 */
-  }
-  .hero-overlay { 
-    position: absolute; 
-    inset: 0; 
-    background: linear-gradient(to bottom, rgba(13,13,13,0.05) 0%, transparent 25%, rgba(13,13,13,0.3) 80%, var(--dark) 100%); 
-  }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(1.1); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.05) 0%, transparent 25%, rgba(13,13,13,0.3) 80%, var(--dark) 100%); }
   .hero-content { position: absolute; bottom: 9%; left: 6%; max-width: 760px; z-index: 10; }
   .hero-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
   .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 8vw, 6.5rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.5rem; }
-  .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
+  .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5), 0 0 60px rgba(200,160,32,0.3); }
   .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
   .hero-sub { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,160,32,0.7); margin-bottom: 2rem; }
   
@@ -69,7 +68,14 @@
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
 
-  .members-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
+  .members-grid { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1px; 
+    background: var(--border); 
+    border: 1px solid var(--border); 
+    margin-top: 2.5rem; 
+  }
   .member-card { background: var(--card); padding: 1.4rem 1.2rem; }
   .member-instrument { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
   .member-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #fff; }
@@ -77,10 +83,16 @@
   footer { background: #080808; border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-copy { font-size: 0.72rem; color: #444; width: 100%; text-align: center; margin-top: 0.5rem; }
 
+  @media (max-width: 900px) {
+    .members-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-logo-img { height: 80px; }
+  }
+
   @media (max-width: 768px) {
     .nav-links { display: none; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .members-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -94,10 +106,10 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="index.html#about">About</a></li>
     <li><a href="index.html#singer">Singer</a></li>
-    <li><a href="#guitarist">Guitarist</a></li>
-    <li><a href="#press">Press</a></li>
-    <li><a href="#lessons">Lessons</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html#guitarist">Guitarist</a></li>
+    <li><a href="index.html#press">Press</a></li>
+    <li><a href="index.html#lessons">Lessons</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
 </nav>
 
@@ -115,9 +127,11 @@
   </div>
 </section>
 
-<div style="background:var(--mid);border-bottom:1px solid var(--border);padding:3rem 2rem;text-align:center;">
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;max-width:700px;margin:0 auto 0.8rem;line-height:1.4;text-shadow: 0 0 15px rgba(255,220,120,0.6);">"I would like a big band that I can write and conduct for."</p>
-  <p style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);text-shadow: 0 0 10px rgba(200,160,32,0.5);">— Jimi Hendrix</p>
+<div style="background:var(--mid);border-bottom:1px solid var(--border);padding:4rem 2rem;text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2.2rem);color:#fff;max-width:750px;margin:0 auto 1.5rem;line-height:1.4;text-shadow: 0 0 15px rgba(255,220,120,0.6);">"I would like a big band that I can write and conduct for."</p>
+  <p style="text-transform:uppercase; color:var(--gold); letter-spacing:0.3em;">
+    <span class="glow-strong" style="font-size: 2em; display: inline-block; padding-top: 10px;">— Jimi Hendrix</span>
+  </p>
 </div>
 
 <section style="background:var(--dark)">
@@ -126,15 +140,16 @@
     <h2 class="big-title">Hendrix as you've<em>never heard him</em></h2>
     <div class="two-col">
       <div>
-        <p class="body-text">The Electric Lady Big Band is a 16-piece jazz orchestra led by guitarist, vocalist and arranger Denny Ilett — reimagining the music of Jimi Hendrix through the lens of jazz, big band, soul and psychedelia.</p>
-        <p class="body-text">Since its founding in 2018, the band has become one of the most celebrated live acts in the UK — with over 60 performances at Ronnie Scott's Jazz Club.</p>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:1.8rem; color:var(--gold-light); margin-bottom:1rem;">Reimagining a <em>Revolution</em></h3>
+        <p class="body-text">The <strong>Electric Lady Big Band</strong> isn't a tribute act; it is a sonic exploration. Led by the visionary arrangements of <strong>Denny Ilett</strong>, this 16-piece powerhouse takes the sprawling, feedback-drenched genius of Jimi Hendrix and translates it into the language of a modern jazz orchestra.</p>
+        <p class="body-text">Imagine the iconic riffs of "Voodoo Chile" reinforced by a wall of brass, or "Little Wing" reimagined with lush, orchestral textures. By finding the "unexpected connection" between the grit of 60s rock and the harmonic complexity of jazz, Denny has created a live experience that feels both historically reverent and wildly contemporary.</p>
       </div>
       <div class="col-img">
         <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett Concept">
       </div>
     </div>
     <div class="stats-grid">
-      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Ronnie Scott's Shows</div></div>
+      <div class="stat-cell"><div class="stat-num">30+</div><div class="stat-label">Sold-Out Shows at Ronnie Scott's</div></div>
       <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">Piece Orchestra</div></div>
       <div class="stat-cell"><div class="stat-num">2</div><div class="stat-label">Studio Albums</div></div>
       <div class="stat-cell"><div class="stat-num">2018</div><div class="stat-label">Founded</div></div>
@@ -164,11 +179,13 @@
     <h2 class="big-title">Some of the finest jazz<em>players in the UK</em></h2>
     <div class="members-grid">
       <div class="member-card"><div class="member-instrument">Guitar / Vocals / Leader</div><div class="member-name">Denny Ilett</div></div>
-      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Iain Ballamy</div></div>
       <div class="member-card"><div class="member-instrument">Bass Guitar</div><div class="member-name">Laurence Cottle</div></div>
+      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Iain Bellamy</div></div>
+      <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Simon Gardner</div></div>
       <div class="member-card"><div class="member-instrument">Trombone</div><div class="member-name">Winston Rollins</div></div>
-      <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Yazz Ahmed</div></div>
-      <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Laura Jurd</div></div>
+      <div class="member-card"><div class="member-instrument">Drums</div><div class="member-name">Daisy Palmer</div></div>
+      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Ruth Hammond</div></div>
+      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Dave O'Higgins</div></div>
     </div>
   </div>
 </section>

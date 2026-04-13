@@ -215,7 +215,7 @@
         </div>
       </div>
       <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett Performance">
+        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett Performance" style="max-width:100%; height:auto;">
         <p style="font-size: 0.6rem; color: var(--muted); text-align: right; padding: 10px; font-style: italic;">Photo: Laurent Cheron</p>
       </div>
     </div>
@@ -271,10 +271,10 @@
         <h4 style="color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:10px;">UNIVERSITY LEVEL</h4>
         <p style="font-size:0.85rem; color:var(--muted);">Bristol & Bath Spa University</p>
       </div>
-      <div style="background:var(--dark); padding: 2rem;">
-        <h4 style="color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:10px;">JTC GUITAR</h4>
-        <p style="font-size:0.85rem; color:var(--muted);">Featured artist & masterclass series</p>
-      </div>
+      <a href="https://jtcguitar.com/store/artist/denny-ilett" target="_blank" style="text-decoration: none; display: block; background:var(--dark); padding: 2rem; transition: background 0.3s;" onmouseover="this.style.background='#1a1a1a'" onmouseout="this.style.background='var(--dark)'">
+        <h4 style="color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:10px;">JTC GUITAR ↗</h4>
+        <p style="font-size:0.85rem; color:var(--muted);">Featured artist & masterclass series. Explore official lessons here.</p>
+      </a>
     </div>
   </div>
 </section>
@@ -292,9 +292,12 @@
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">SPOTIFY</h4>
         <p style="color:var(--text); font-size:0.9rem;">Stream Denny Ilett and the Electric Lady Big Band.</p>
       </div>
-      <div style="background: var(--card); padding: 2.5rem;">
-        <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">JTC GUITAR</h4>
-        <p style="color:var(--text); font-size:0.9rem;">Explore acclaimed educational masterclasses.</p>
+      <div style="background: var(--card); padding: 2.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">JTC GUITAR</h4>
+          <p style="color:var(--text); font-size:0.9rem; margin-bottom: 20px;">Explore acclaimed educational masterclasses.</p>
+        </div>
+        <a href="https://jtcguitar.com/store/artist/denny-ilett" target="_blank" style="color: var(--gold); font-size: 0.7rem; text-decoration: none; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Visit JTC Store ↗</a>
       </div>
     </div>
   </div>
@@ -304,12 +307,12 @@
   <div class="section-inner">
     <div class="label">Contact</div>
     <h2 class="big-title">Book a Show. <em>Start a Conversation.</em></h2>
-    <form action="https://formspree.io/f/dennyilett@gmail.com" method="POST">
+    <form action="https://formspree.io/f/mlgarazp" method="POST">
       <div class="contact-form-grid">
         <div class="form-group"><input class="form-input" type="text" name="name" placeholder="Your name" required></div>
-        <div class="form-group"><input class="form-input" type="email" name="_replyto" placeholder="your@email.com" required></div>
+        <div class="form-group"><input class="form-input" type="email" name="email" placeholder="your@email.com" required></div>
         <div class="form-group full"><input class="form-input" type="text" name="subject" placeholder="Booking / Press / General"></div>
-        <div class="form-group full"><textarea class="form-textarea" rows="5" name="message" placeholder="Tell us about your event..."></textarea></div>
+        <div class="form-group full"><textarea class="form-textarea" rows="5" name="message" placeholder="Tell us about your event..." required></textarea></div>
       </div>
       <button type="submit" class="submit-btn" style="margin-top:20px;">Send Message</button>
     </form>

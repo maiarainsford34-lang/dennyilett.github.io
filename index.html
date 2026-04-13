@@ -1,3 +1,10 @@
+Here is the complete, final version of the `index.html` file. 
+
+I have integrated the **"Musician's Musician"** narrative you preferred into the **About** section, maintained the **Singer** section with your specific images (`denny7` and `denny9`), and ensured every menu item—from **Lessons** to **Press**—has a dedicated, styled section that matches the high-end aesthetic of the screenshots you provided.
+
+**Copy this entire block and replace the contents of your GitHub file:**
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -51,7 +58,7 @@
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
 
-  /* SECTIONS */
+  /* CONTENT STYLES */
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
   .label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
@@ -68,21 +75,20 @@
   .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
 
   .col-img { overflow: hidden; border: 1px solid var(--border); position: relative; }
-  .col-img img { width: 100%; height: auto; display: block; filter: brightness(0.9); transition: transform 0.5s; }
-  .col-img:hover img { transform: scale(1.02); }
+  .col-img img { width: 100%; height: auto; display: block; filter: brightness(0.9); }
 
-  /* CONTACT */
+  /* CONTACT FORM */
   .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .form-group.full { grid-column: 1 / -1; }
   .form-input, .form-textarea { background: var(--card); border: 1px solid var(--border); color: #fff; padding: 1.2rem; width: 100%; font-family: inherit; }
-  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 3rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; margin-top: 1rem; }
+  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 3rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; }
 
-  footer { background: #080808; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: #444; font-size: 0.7rem; letter-spacing: 0.1em; }
+  footer { background: #080808; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: #444; font-size: 0.7rem; }
 
   @media (max-width: 850px) {
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .nav-links { display: none; }
-    .hero-content { left: 5%; bottom: 5%; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
   }
 </style>
 </head>
@@ -128,8 +134,14 @@
     </div>
     
     <div class="two-col">
-      <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
-      <p class="body-text">Based in Henley-on-Thames, Denny has spent over four decades performing at the highest level. From touring the globe as Musical Director for New Orleans legend Lillian Boutté to his roles as Artistic Director of the Bristol International Jazz & Blues Festival, his work bridges the gap between the refined and the raw.</p>
+      <div>
+        <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
+        <p class="body-text">Based in Henley-on-Thames, Oxfordshire, Denny has spent over four decades performing and recording at the highest level. His musical explorations span jazz, blues, big band, swing, rock, soul, funk and psychedelia.</p>
+      </div>
+      <div>
+        <p class="body-text">He has collaborated with a remarkable range of musicians including funk legend Pee Wee Ellis, conductor Charles Hazlewood, and celebrated New Orleans vocalist Lillian Boutté — with whom he toured globally for over two decades as musical director.</p>
+        <p class="body-text">As the co-founder and Artistic Director of the Bristol International Jazz & Blues Festival, Denny continues to be a central pillar of the UK music community, bridging the gap between the technical and the soulful.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -141,15 +153,15 @@
     <div class="two-col">
       <div>
         <p class="body-text">Denny Ilett is one of the UK's most celebrated jazz vocalists, renowned for his smooth, charismatic interpretations of the Great American Songbook. His acclaimed Frank Sinatra tribute show has delighted audiences at festivals across the South of England and beyond.</p>
-        <p class="body-text">Whether fronting a full 16-piece big band or a smaller combo, every performance is a masterclass in swing—capturing Sinatra's warmth while adding his own unmistakable artistic flair. Denny creates lush, rhythmically driven charts that honour tradition while speaking to contemporary audiences.</p>
-        <div style="margin-top: 2.5rem; display: flex; gap: 15px; align-items: center;">
+        <p class="body-text">Whether fronting a full 16-piece big band or a smaller combo, every performance is a masterclass in swing—capturing Sinatra's warmth while adding his own unmistakable artistic flair. As an arranger, Denny creates lush, rhythmically driven charts that honour tradition while speaking to contemporary audiences.</p>
+        <div style="margin-top: 2rem; display: flex; gap: 15px; align-items: flex-end;">
            <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny9.jpg" style="width: 130px; border: 1px solid var(--border); filter: grayscale(100%);">
-           <p style="font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">Theatre · Festivals · Corporate</p>
+           <p style="font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">Theatre · Festivals · Private</p>
         </div>
       </div>
       <div class="col-img">
         <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett Performance">
-        <p style="font-size: 0.6rem; color: var(--muted); text-align: right; padding: 8px; font-style: italic;">Photo: Laurent Cheron</p>
+        <p style="font-size: 0.6rem; color: var(--muted); text-align: right; padding: 10px; font-style: italic;">Photo: Laurent Cheron</p>
       </div>
     </div>
   </div>
@@ -157,16 +169,16 @@
 
 <section id="guitarist" style="background:var(--dark); border-top: 1px solid var(--border);">
   <div class="section-inner">
-    <div class="label">Strings & Brass</div>
-    <h2 class="big-title">Guitarist & <em>Arranger</em></h2>
-    <div class="two-col" style="margin-top: 2rem;">
+    <div class="label">Expertise</div>
+    <h2 class="big-title">Strings, Brass & <em>Psychedelia</em></h2>
+    <div class="two-col">
       <div style="background: var(--card); padding: 2.5rem; border: 1px solid var(--border);">
-        <h3 style="font-family:'Cormorant Garamond'; font-size:2rem; color:var(--gold-light); margin-bottom:1rem;">The <em>Guitarist</em></h3>
-        <p class="body-text">A voice entirely his own, Denny's playing draws on the deepest roots of jazz and blues. His intricate chords and smooth melodies bring a fresh perspective to everything from Gypsy Jazz to heavy rock.</p>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:1.8rem; color:var(--gold-light); margin-bottom:1rem;">The <em>Guitarist</em></h3>
+        <p class="body-text">A self-taught guitarist with a voice entirely his own, Denny's playing draws on the deepest roots of jazz and blues. His intricate chords and smooth melodies bring a fresh perspective to everything from Gypsy Jazz to heavy rock.</p>
       </div>
       <div style="background: var(--card); padding: 2.5rem; border: 1px solid var(--border);">
-        <h3 style="font-family:'Cormorant Garamond'; font-size:2rem; color:var(--gold-light); margin-bottom:1rem;">The <em>Arranger</em></h3>
-        <p class="body-text">One of the UK's most sought-after arrangers, Denny meticulously crafts his own Sinatra big band charts and orchestrates the psychedelic textures of the 16-piece Electric Lady Big Band.</p>
+        <h3 style="font-family:'Cormorant Garamond'; font-size:1.8rem; color:var(--gold-light); margin-bottom:1rem;">The <em>Arranger</em></h3>
+        <p class="body-text">One of the UK's most sought-after arrangers, Denny meticulously crafts his own Frank Sinatra big band charts and orchestrates the complex, psychedelic textures of the Electric Lady Big Band.</p>
       </div>
     </div>
   </div>
@@ -193,7 +205,7 @@
   <div class="section-inner">
     <div class="label">Tuition</div>
     <h2 class="big-title">Jazz Guitar <em>Lessons</em></h2>
-    <p class="body-text" style="max-width: 850px;">Denny offers jazz guitar lessons from his base in Henley-on-Thames and online to students worldwide. With over 40 years of experience, his "Jazz Demystification" approach strips away complex theory to put the music and fretboard logic first.</p>
+    <p class="body-text" style="max-width: 850px;">Denny offers jazz guitar lessons from his base in Henley-on-Thames and online worldwide. His "Jazz Demystification" approach strips away complex theory to put the music and fretboard logic first.</p>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem;">
       <div style="background:var(--dark); padding: 2rem;">
@@ -217,23 +229,23 @@
     <div class="label">Listen</div>
     <h2 class="big-title">Music & <em>Recordings</em></h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
-      <a href="#" style="text-decoration:none; background: var(--card); padding: 2.5rem; border: 1px solid transparent; transition: 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+      <div style="background: var(--card); padding: 2.5rem; border: 1px solid transparent;">
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">BANDCAMP</h4>
         <p style="color:var(--text); font-size:0.9rem;">Full albums and live recordings available to download.</p>
-      </a>
-      <a href="#" style="text-decoration:none; background: var(--card); padding: 2.5rem; border: 1px solid transparent; transition: 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+      </div>
+      <div style="background: var(--card); padding: 2.5rem; border: 1px solid transparent;">
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">SPOTIFY</h4>
         <p style="color:var(--text); font-size:0.9rem;">Stream Denny Ilett and the Electric Lady Big Band.</p>
-      </a>
-      <a href="#" style="text-decoration:none; background: var(--card); padding: 2.5rem; border: 1px solid transparent; transition: 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+      </div>
+      <div style="background: var(--card); padding: 2.5rem; border: 1px solid transparent;">
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">JTC GUITAR</h4>
         <p style="color:var(--text); font-size:0.9rem;">Explore acclaimed educational masterclasses.</p>
-      </a>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact-section" style="background:var(--dark); border-top: 1px solid var(--border);">
+<section id="contact" style="background:var(--dark); border-top: 1px solid var(--border);">
   <div class="section-inner">
     <div class="label">Contact</div>
     <h2 class="big-title">Book a Show. <em>Start a Conversation.</em></h2>
@@ -244,7 +256,7 @@
         <div class="form-group full"><input class="form-input" type="text" name="subject" placeholder="Booking / Press / General"></div>
         <div class="form-group full"><textarea class="form-textarea" rows="5" name="message" placeholder="Tell us about your event..."></textarea></div>
       </div>
-      <button type="submit" class="submit-btn">Send Message</button>
+      <button type="submit" class="submit-btn" style="margin-top:20px;">Send Message</button>
     </form>
   </div>
 </section>
@@ -260,3 +272,4 @@
 </script>
 </body>
 </html>
+```

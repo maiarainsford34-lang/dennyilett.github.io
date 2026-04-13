@@ -40,15 +40,13 @@
   .hero-content { position: absolute; bottom: 9%; left: 6%; max-width: 760px; z-index: 10; }
   .hero-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
   
-  /* THE GLOWING TITLE */
   .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 8vw, 6.5rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.5rem; }
   .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5), 0 0 80px rgba(180,120,20,0.3); }
   .hero-title em { font-style: italic; color: var(--gold-light); display: block; text-shadow: 0 0 15px rgba(255,220,120,0.3); }
 
   .hero-sub { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,160,32,0.7); margin-bottom: 2rem; }
   .hero-sub span { margin: 0 0.5rem; opacity: 0.4; }
-  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
-
+  
   .btn-gold { padding: 0.8rem 2rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: background 0.2s; display: inline-block; }
   .btn-gold:hover { background: var(--gold-light); }
   .btn-outline { padding: 0.8rem 2rem; border: 1px solid rgba(200,160,32,0.6); color: var(--gold); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: all 0.2s; display: inline-block; }
@@ -60,12 +58,11 @@
   .big-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; color: #fff; line-height: 1.05; margin-bottom: 1.5rem; }
   .big-title em { font-style: italic; color: var(--gold-light); display: block; }
   .body-text { font-size: 0.95rem; line-height: 1.85; color: #aaa; max-width: 680px; margin-bottom: 1.2rem; }
-  hr.divider { border: none; border-top: 1px solid var(--border); margin: 0 2rem; }
 
-  /* PHOTO FIXES (Contain instead of Zoom) */
+  /* PHOTO STYLING */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .col-img { overflow: hidden; background: #000; border: 1px solid var(--border); }
-  .col-img img { width: 100%; aspect-ratio: 3/2; object-fit: contain; filter: brightness(0.85); transition: transform 0.6s; }
+  .col-img img { width: 100%; height: auto; max-height: 500px; object-fit: contain; filter: brightness(0.85); transition: transform 0.6s; }
 
   /* STATS */
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin-top: 3rem; }
@@ -81,21 +78,6 @@
   .member-instrument { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
   .member-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #fff; }
 
-  .booking-section { background: var(--deep); }
-  .config-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
-  .config-card { background: var(--card); padding: 2rem 1.8rem; }
-  .config-title { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; font-weight: 700; }
-  .config-size { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: #fff; margin-bottom: 0.5rem; }
-  .config-desc { font-size: 0.82rem; color: #999; line-height: 1.6; }
-
-  .press-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2.5rem; }
-  .press-card { background: var(--card); padding: 2.5rem 2rem; position: relative; }
-  .press-card::before { content: '\201C'; font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--gold); opacity: 0.2; position: absolute; top: 1rem; left: 1.5rem; line-height: 1; }
-  .press-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; color: #ccc; line-height: 1.65; margin-bottom: 1.2rem; }
-  .press-source { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
-
-  .back-cta { background: linear-gradient(135deg, #0d0d0d 0%, #1a0a00 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 5rem 2rem; text-align: center; }
-
   footer { background: #080808; border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-left { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; }
@@ -104,18 +86,10 @@
   .footer-copy { font-size: 0.72rem; color: #444; width: 100%; text-align: center; margin-top: 0.5rem; }
 
   @media (max-width: 768px) {
-    nav { padding: 0.9rem 1.2rem; }
-    .nav-links { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.99); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; z-index: 99; }
-    .nav-links.open { display: flex; }
-    .nav-links a { font-size: 1rem; }
-    .nav-toggle { display: flex; }
+    .nav-links { display: none; }
     .hero-content { left: 5%; right: 5%; bottom: 7%; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
-    .config-grid { grid-template-columns: 1fr; }
-    .press-grid { grid-template-columns: 1fr; }
-    .section-inner { padding: 3rem 1.2rem; }
-    footer { flex-direction: column; text-align: center; }
   }
 </style>
 </head>
@@ -134,9 +108,6 @@
     <li><a href="index.html#lessons">Lessons</a></li>
     <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <section class="hero">
@@ -153,19 +124,14 @@
   </div>
 </section>
 
-<div style="background:var(--mid);border-bottom:1px solid var(--border);padding:3rem 2rem;text-align:center;">
-  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;max-width:700px;margin:0 auto 0.8rem;line-height:1.4;text-shadow: 0 0 15px rgba(255,220,120,0.6);">"I would like a big band that I can write and conduct for."</p>
-  <p style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);text-shadow: 0 0 10px rgba(200,160,32,0.5);">— Jimi Hendrix</p>
-</div>
-
 <section style="background:var(--dark)">
   <div class="section-inner">
     <div class="label">The Concept</div>
     <h2 class="big-title">Hendrix as you've<em>never heard him</em></h2>
     <div class="two-col">
       <div>
-        <p class="body-text" style="max-width:100%">The Electric Lady Big Band is a 16-piece jazz orchestra led by guitarist, vocalist and arranger Denny Ilett — reimagining the music of Jimi Hendrix through the lens of jazz, big band, soul and psychedelia.</p>
-        <p class="body-text" style="max-width:100%">Since its founding in 2018, the band has become one of the most celebrated live acts in the UK — with thirty-two sold-out performances at Ronnie Scott's Jazz Club.</p>
+        <p class="body-text">The Electric Lady Big Band is a 16-piece jazz orchestra led by guitarist, vocalist and arranger Denny Ilett — reimagining the music of Jimi Hendrix through the lens of jazz, big band, soul and psychedelia.</p>
+        <p class="body-text">Since its founding in 2018, the band has become one of the most celebrated live acts in the UK — with over 60 performances at Ronnie Scott's Jazz Club.</p>
       </div>
       <div class="col-img">
         <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="Electric Lady Big Band">
@@ -173,7 +139,7 @@
     </div>
 
     <div class="stats-grid">
-      <div class="stat-cell"><div class="stat-num">32</div><div class="stat-label">Sold-Out Shows</div></div>
+      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Ronnie Scott's Shows</div></div>
       <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">Piece Orchestra</div></div>
       <div class="stat-cell"><div class="stat-num">2</div><div class="stat-label">Studio Albums</div></div>
       <div class="stat-cell"><div class="stat-num">2018</div><div class="stat-label">Founded</div></div>
@@ -187,10 +153,10 @@
     <h2 class="big-title">An explosive<em>live experience</em></h2>
     <div class="two-col">
        <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb2.jpg" alt="Electric Lady Big Band live">
+        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett Live">
       </div>
       <div>
-        <p class="body-text" style="max-width:100%">The Electric Lady Big Band delivers a live experience that is unlike anything else on the UK jazz scene. The band interprets Hendrix's Electric Ladyland album in full, plus tracks from across his catalogue.</p>
+        <p class="body-text">The Electric Lady Big Band delivers a live experience that is unlike anything else on the UK jazz scene. The band interprets Hendrix's Electric Ladyland album in full, plus tracks from across his catalogue.</p>
         <a href="index.html#contact" class="btn-outline">Enquire About Booking</a>
       </div>
     </div>
@@ -226,9 +192,6 @@
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
   });
-  function toggleNav() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
 </script>
 </body>
 </html>

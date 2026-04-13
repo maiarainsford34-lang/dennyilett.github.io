@@ -29,12 +29,12 @@
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; transition: color 0.2s; }
 
   .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
-  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(0.6); }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.1) 0%, transparent 25%, rgba(13,13,13,0.55) 80%, var(--dark) 100%); }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; filter: brightness(1.1); }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.05) 0%, transparent 25%, rgba(13,13,13,0.3) 80%, var(--dark) 100%); }
   .hero-content { position: absolute; bottom: 9%; left: 6%; max-width: 760px; z-index: 10; }
   .hero-label { font-size: 0.65rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
   .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 8vw, 6.5rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.5rem; }
-  .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
+  .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5), 0 0 60px rgba(200,160,32,0.3); }
   .hero-title em { font-style: italic; color: var(--gold-light); display: block; }
   .hero-sub { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(200,160,32,0.7); margin-bottom: 2rem; }
   
@@ -50,7 +50,7 @@
 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
   .col-img { overflow: hidden; background: #000; border: 1px solid var(--border); display: flex; justify-content: center; }
-  .col-img img { width: 100%; height: auto; max-height: 500px; object-fit: contain; filter: brightness(0.9); }
+  .col-img img { width: 100%; height: auto; max-height: 500px; object-fit: contain; filter: brightness(0.95); }
 
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin-top: 3rem; }
   .stat-cell { padding: 2rem 1.5rem; border-right: 1px solid var(--border); }
@@ -104,6 +104,11 @@
   </div>
 </section>
 
+<div style="background:var(--mid);border-bottom:1px solid var(--border);padding:3rem 2rem;text-align:center;">
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,3vw,2rem);color:#fff;max-width:700px;margin:0 auto 0.8rem;line-height:1.4;text-shadow: 0 0 15px rgba(255,220,120,0.6);">"I would like a big band that I can write and conduct for."</p>
+  <p style="font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);"><span class="glow-strong">— Jimi Hendrix</span></p>
+</div>
+
 <section style="background:var(--dark)">
   <div class="section-inner">
     <div class="label">The Concept</div>
@@ -114,7 +119,7 @@
         <p class="body-text">Since its founding in 2018, the band has become one of the most celebrated live acts in the UK — with over 60 performances at Ronnie Scott's Jazz Club.</p>
       </div>
       <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="Electric Lady Big Band">
+        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett Concept">
       </div>
     </div>
     <div class="stats-grid">
@@ -132,7 +137,7 @@
     <h2 class="big-title">An explosive<em>live experience</em></h2>
     <div class="two-col">
        <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett Live">
+        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb2.jpeg" alt="Electric Lady Big Band Live">
       </div>
       <div>
         <p class="body-text">The Electric Lady Big Band delivers a live experience that is unlike anything else on the UK jazz scene. The band interprets Hendrix's Electric Ladyland album in full, plus tracks from across his catalogue.</p>
@@ -148,11 +153,12 @@
     <h2 class="big-title">Some of the finest jazz<em>players in the UK</em></h2>
     <div class="members-grid">
       <div class="member-card"><div class="member-instrument">Guitar / Vocals / Leader</div><div class="member-name">Denny Ilett</div></div>
+      <div class="member-card"><div class="member-instrument">Drums</div><div class="member-name">Daisy Palmer</div></div>
+      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Dave O'Higgins</div></div>
       <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Iain Ballamy</div></div>
+      <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Simon Gardner</div></div>
       <div class="member-card"><div class="member-instrument">Bass Guitar</div><div class="member-name">Laurence Cottle</div></div>
       <div class="member-card"><div class="member-instrument">Trombone</div><div class="member-name">Winston Rollins</div></div>
-      <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Yazz Ahmed</div></div>
-      <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Laura Jurd</div></div>
     </div>
   </div>
 </section>

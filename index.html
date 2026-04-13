@@ -51,50 +51,38 @@
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
 
-  /* CAROUSEL */
-  .carousel-section { background: var(--deep); padding: 3rem 0 0; }
-  .carousel { position: relative; height: 560px; max-width: 1200px; margin: 0 auto; background: #000; overflow: hidden; }
-  .carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; display: flex; align-items: center; justify-content: center; }
-  .carousel-slide.active { opacity: 1; z-index: 1; }
-  .carousel-slide img { width: 100%; height: 100%; object-fit: contain; }
-  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(13,13,13,0.4); border: 1px solid var(--gold); color: var(--gold); width: 44px; height: 44px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; }
-  .carousel-btn.prev { left: 1rem; }
-  .carousel-btn.next { right: 1rem; }
-
-  /* CONTENT STYLE */
-  .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+  /* SECTIONS */
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
   .label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .big-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; color: #fff; line-height: 1.05; margin-bottom: 1.5rem; }
-  .big-title em { font-style: italic; color: var(--gold-light); display: block; }
-  .body-text { font-size: 0.95rem; line-height: 1.85; color: #aaa; max-width: 720px; margin-bottom: 1.2rem; }
+  .big-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: #fff; line-height: 1.05; margin-bottom: 2rem; }
+  .big-title em { font-style: italic; color: var(--gold-light); }
+  .body-text { font-size: 0.95rem; line-height: 1.85; color: #aaa; margin-bottom: 1.5rem; }
 
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 3rem; }
-  .stat-cell { padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); }
-  .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 400; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
-  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
-
+  /* GRIDS */
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-  .col-img { overflow: hidden; background: #000; border: 1px solid var(--border); }
-  .col-img img { width: 100%; aspect-ratio: 4/5; object-fit: contain; filter: brightness(0.88); }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 2rem; margin-bottom: 3rem; }
+  .stat-cell { padding: 2rem; border-bottom: 1px solid var(--border); }
+  .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
 
-  /* CONTACT FORM */
-  .contact-section { background: var(--dark); border-top: 1px solid var(--border); }
+  .col-img { overflow: hidden; border: 1px solid var(--border); position: relative; }
+  .col-img img { width: 100%; height: auto; display: block; filter: brightness(0.9); transition: transform 0.5s; }
+  .col-img:hover img { transform: scale(1.02); }
+
+  /* CONTACT */
   .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .form-group.full { grid-column: 1 / -1; }
-  .form-input, .form-textarea { background: var(--card); border: 1px solid var(--border); color: #fff; padding: 1rem; width: 100%; font-family: inherit; }
-  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 2.5rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.7rem; }
+  .form-input, .form-textarea { background: var(--card); border: 1px solid var(--border); color: #fff; padding: 1.2rem; width: 100%; font-family: inherit; }
+  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 3rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; margin-top: 1rem; }
 
-  footer { background: #080808; border-top: 1px solid var(--border); padding: 2.5rem 2rem; text-align: center; color: #444; font-size: 0.7rem; }
+  footer { background: #080808; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: #444; font-size: 0.7rem; letter-spacing: 0.1em; }
 
-  @media (max-width: 768px) {
-    nav { padding: 1rem 1.2rem; }
-    .nav-logo-img { height: 80px; }
-    .nav-links { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.99); flex-direction: column; justify-content: center; gap: 2rem; z-index: 100; }
-    .nav-links.open { display: flex; }
-    .two-col { grid-template-columns: 1fr; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 850px) {
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .hero-content { left: 5%; bottom: 5%; }
   }
 </style>
 </head>
@@ -104,7 +92,7 @@
   <a href="#" class="nav-brand">
     <img class="nav-logo-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny-logo.jpg" alt="Denny Ilett">
   </a>
-  <ul class="nav-links" id="navLinks">
+  <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#singer">Singer</a></li>
     <li><a href="#guitarist">Guitarist</a></li>
@@ -120,76 +108,141 @@
   <img class="hero-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg" alt="Denny Ilett">
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1 class="hero-name"><span class="glow-strong">Denny</span><em class="glow-soft">Ilett</em></h1>
-    <div style="margin-top:20px;">
-      <a href="elbb.html" style="padding: 0.8rem 2rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em;">Electric Lady Big Band</a>
+    <h1 class="hero-name"><span class="glow-strong">Denny</span><em>Ilett</em></h1>
+    <div style="margin-top:25px;">
+      <a href="elbb.html" style="padding: 1rem 2.5rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em;">Electric Lady Big Band</a>
     </div>
-  </div>
-</section>
-
-<section class="carousel-section">
-  <div class="carousel" id="fadeCarousel">
-    <div class="carousel-slide active"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett"></div>
-    <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett"></div>
-    <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
-    <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett"></div>
-    <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett"></div>
-    <button class="carousel-btn prev" onclick="changeSlide(-1)">←</button>
-    <button class="carousel-btn next" onclick="changeSlide(1)">→</button>
   </div>
 </section>
 
 <section id="about" style="background:var(--dark)">
   <div class="section-inner">
-    <div class="label">About</div>
+    <div class="label">The Artist</div>
     <h2 class="big-title">A Musician's <em>Musician</em></h2>
 
-    <div class="stats-grid" style="margin-bottom: 3rem;">
+    <div class="stats-grid">
       <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-label">Years Performing</div></div>
-      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Performances at Ronnie Scott's</div></div>
+      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Ronnie Scott's Performances</div></div>
       <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-label">Years as Musical Director</div></div>
       <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">Piece Electric Lady Big Band</div></div>
     </div>
     
     <div class="two-col">
-      <div>
-        <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
-        <p class="body-text">Based in Henley-on-Thames, Denny has spent over four decades performing at the highest level of the industry. His musical foundation was built on the bandstand, an organic "ear-first" approach that led to a storied 20-year tenure as the <strong>Musical Director for Lillian Boutté</strong>, the legendary New Orleans vocalist and official musical ambassador of the Crescent City.</p>
-      </div>
-      <div>
-        <p class="body-text">Beyond the stage, Denny is a pillar of the UK music community. As the co-founder and <strong>Artistic Director of the Bristol International Jazz & Blues Festival</strong>, he curates world-class talent and helps shape the creative direction of one of the country's premier musical events.</p>
-        <p class="body-text">He is also a dedicated educator and a familiar voice to guitarists worldwide through his masterclasses for JTC Guitar and his long-standing contributions to <em>Guitarist Magazine</em>.</p>
-      </div>
+      <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
+      <p class="body-text">Based in Henley-on-Thames, Denny has spent over four decades performing at the highest level. From touring the globe as Musical Director for New Orleans legend Lillian Boutté to his roles as Artistic Director of the Bristol International Jazz & Blues Festival, his work bridges the gap between the refined and the raw.</p>
     </div>
   </div>
 </section>
 
-<section id="guitarist" style="background:var(--deep)">
+<section id="singer" style="background:var(--deep); border-top: 1px solid var(--border);">
   <div class="section-inner">
-    <div class="label">Guitarist & Arranger</div>
-    <h2 class="big-title">Strings, Brass &<em>Psychedelia</em></h2>
+    <div class="label">Vocalist</div>
+    <h2 class="big-title">The Sinatra <em>Experience</em></h2>
     <div class="two-col">
       <div>
-        <p class="body-text">A self-taught guitarist with a voice entirely his own, Denny's playing draws on the deepest roots of jazz and blues. His intricate chords and smooth melodies bring a fresh perspective to classic material, whether performing Gypsy Jazz or heavy rock.</p>
-        <p class="body-text">As an arranger, Denny is one of the most sought-after in the UK. His work with the <strong>Electric Lady Big Band</strong> reimagines the music of Jimi Hendrix through the lens of a jazz orchestra, seeking the unexpected connection between musical worlds.</p>
-        <p class="body-text">His collaborative portfolio features a "who’s who" of cross-genre excellence, including funk legend <strong>Pee Wee Ellis</strong>, conductor <strong>Charles Hazlewood</strong>, and members of <strong>Portishead</strong> and <strong>Goldfrapp</strong>.</p>
+        <p class="body-text">Denny Ilett is one of the UK's most celebrated jazz vocalists, renowned for his smooth, charismatic interpretations of the Great American Songbook. His acclaimed Frank Sinatra tribute show has delighted audiences at festivals across the South of England and beyond.</p>
+        <p class="body-text">Whether fronting a full 16-piece big band or a smaller combo, every performance is a masterclass in swing—capturing Sinatra's warmth while adding his own unmistakable artistic flair. Denny creates lush, rhythmically driven charts that honour tradition while speaking to contemporary audiences.</p>
+        <div style="margin-top: 2.5rem; display: flex; gap: 15px; align-items: center;">
+           <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny9.jpg" style="width: 130px; border: 1px solid var(--border); filter: grayscale(100%);">
+           <p style="font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">Theatre · Festivals · Corporate</p>
+        </div>
       </div>
       <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett Guitar">
+        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett Performance">
+        <p style="font-size: 0.6rem; color: var(--muted); text-align: right; padding: 8px; font-style: italic;">Photo: Laurent Cheron</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact-section">
+<section id="guitarist" style="background:var(--dark); border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="label">Strings & Brass</div>
+    <h2 class="big-title">Guitarist & <em>Arranger</em></h2>
+    <div class="two-col" style="margin-top: 2rem;">
+      <div style="background: var(--card); padding: 2.5rem; border: 1px solid var(--border);">
+        <h3 style="font-family:'Cormorant Garamond'; font-size:2rem; color:var(--gold-light); margin-bottom:1rem;">The <em>Guitarist</em></h3>
+        <p class="body-text">A voice entirely his own, Denny's playing draws on the deepest roots of jazz and blues. His intricate chords and smooth melodies bring a fresh perspective to everything from Gypsy Jazz to heavy rock.</p>
+      </div>
+      <div style="background: var(--card); padding: 2.5rem; border: 1px solid var(--border);">
+        <h3 style="font-family:'Cormorant Garamond'; font-size:2rem; color:var(--gold-light); margin-bottom:1rem;">The <em>Arranger</em></h3>
+        <p class="body-text">One of the UK's most sought-after arrangers, Denny meticulously crafts his own Sinatra big band charts and orchestrates the psychedelic textures of the 16-piece Electric Lady Big Band.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="press" style="background:var(--deep); border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="label">Press</div>
+    <h2 class="big-title">What They're <em>Saying</em></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+      <div style="background: var(--card); padding: 2.5rem; border-left: 4px solid var(--gold);">
+        <p class="body-text" style="font-style:italic; color:#fff;">"A knockout guitarist — soulful and jazz-tinged. Ilett plays with the kind of conviction that reminds you why this music still matters."</p>
+        <p style="color:var(--gold); font-size:0.7rem; margin-top:1.5rem; letter-spacing:0.2em; font-weight:700;">GUITARIST MAGAZINE</p>
+      </div>
+      <div style="background: var(--card); padding: 2.5rem; border-left: 4px solid var(--gold);">
+        <p class="body-text" style="font-style:italic; color:#fff;">"The band interprets Hendrix with power, precision, passion and deep respect — a legacy far beyond the popular guitar hero image."</p>
+        <p style="color:var(--gold); font-size:0.7rem; margin-top:1.5rem; letter-spacing:0.2em; font-weight:700;">RONNIE SCOTT'S JAZZ CLUB</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lessons" style="background:var(--dark); border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="label">Tuition</div>
+    <h2 class="big-title">Jazz Guitar <em>Lessons</em></h2>
+    <p class="body-text" style="max-width: 850px;">Denny offers jazz guitar lessons from his base in Henley-on-Thames and online to students worldwide. With over 40 years of experience, his "Jazz Demystification" approach strips away complex theory to put the music and fretboard logic first.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem;">
+      <div style="background:var(--dark); padding: 2rem;">
+        <h4 style="color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:10px;">CLIFTON COLLEGE</h4>
+        <p style="font-size:0.85rem; color:var(--muted);">12 years as guitar tutor</p>
+      </div>
+      <div style="background:var(--dark); padding: 2rem;">
+        <h4 style="color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:10px;">UNIVERSITY LEVEL</h4>
+        <p style="font-size:0.85rem; color:var(--muted);">Bristol & Bath Spa University</p>
+      </div>
+      <div style="background:var(--dark); padding: 2rem;">
+        <h4 style="color:var(--gold); font-size:0.8rem; letter-spacing:0.1em; margin-bottom:10px;">JTC GUITAR</h4>
+        <p style="font-size:0.85rem; color:var(--muted);">Featured artist & masterclass series</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="music" style="background:var(--deep); border-top: 1px solid var(--border);">
+  <div class="section-inner">
+    <div class="label">Listen</div>
+    <h2 class="big-title">Music & <em>Recordings</em></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+      <a href="#" style="text-decoration:none; background: var(--card); padding: 2.5rem; border: 1px solid transparent; transition: 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+        <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">BANDCAMP</h4>
+        <p style="color:var(--text); font-size:0.9rem;">Full albums and live recordings available to download.</p>
+      </a>
+      <a href="#" style="text-decoration:none; background: var(--card); padding: 2.5rem; border: 1px solid transparent; transition: 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+        <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">SPOTIFY</h4>
+        <p style="color:var(--text); font-size:0.9rem;">Stream Denny Ilett and the Electric Lady Big Band.</p>
+      </a>
+      <a href="#" style="text-decoration:none; background: var(--card); padding: 2.5rem; border: 1px solid transparent; transition: 0.3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='transparent'">
+        <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">JTC GUITAR</h4>
+        <p style="color:var(--text); font-size:0.9rem;">Explore acclaimed educational masterclasses.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-section" style="background:var(--dark); border-top: 1px solid var(--border);">
   <div class="section-inner">
     <div class="label">Contact</div>
-    <h2 class="big-title">Book a Show.<em>Start a Conversation.</em></h2>
+    <h2 class="big-title">Book a Show. <em>Start a Conversation.</em></h2>
     <form action="https://formspree.io/f/dennyilett@gmail.com" method="POST">
       <div class="contact-form-grid">
         <div class="form-group"><input class="form-input" type="text" name="name" placeholder="Your name" required></div>
         <div class="form-group"><input class="form-input" type="email" name="_replyto" placeholder="your@email.com" required></div>
-        <div class="form-group full"><textarea class="form-textarea" name="message" placeholder="Message..."></textarea></div>
+        <div class="form-group full"><input class="form-input" type="text" name="subject" placeholder="Booking / Press / General"></div>
+        <div class="form-group full"><textarea class="form-textarea" rows="5" name="message" placeholder="Tell us about your event..."></textarea></div>
       </div>
       <button type="submit" class="submit-btn">Send Message</button>
     </form>
@@ -197,21 +250,12 @@
 </section>
 
 <footer>
-  <div class="footer-copy">© 2026 Denny Ilett · All Rights Reserved</div>
+  <div>© 2026 Denny Ilett · All Rights Reserved</div>
 </footer>
 
 <script>
-  let currentSlide = 0;
-  const slides = document.querySelectorAll('.carousel-slide');
-  function showSlide(index) {
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-  function changeSlide(step) { showSlide(currentSlide + step); }
-  setInterval(() => changeSlide(1), 5000);
   window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
   });
 </script>
 </body>

@@ -1,10 +1,3 @@
-Here is the complete, final version of the `index.html` file. 
-
-I have integrated the **"Musician's Musician"** narrative you preferred into the **About** section, maintained the **Singer** section with your specific images (`denny7` and `denny9`), and ensured every menu item—from **Lessons** to **Press**—has a dedicated, styled section that matches the high-end aesthetic of the screenshots you provided.
-
-**Copy this entire block and replace the contents of your GitHub file:**
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +51,15 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
 
+  /* FADE CAROUSEL STYLES */
+  .carousel-wrapper { position: relative; height: 500px; width: 100%; margin: 2rem 0 4rem; background: #000; overflow: hidden; border: 1px solid var(--border); }
+  .carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; display: flex; align-items: center; justify-content: center; }
+  .carousel-slide.active { opacity: 1; z-index: 1; }
+  .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: 1px solid var(--gold); color: var(--gold); width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
+  .carousel-btn.prev { left: 1rem; }
+  .carousel-btn.next { right: 1rem; }
+
   /* CONTENT STYLES */
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
@@ -74,9 +76,6 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
 
-  .col-img { overflow: hidden; border: 1px solid var(--border); position: relative; }
-  .col-img img { width: 100%; height: auto; display: block; filter: brightness(0.9); }
-
   /* CONTACT FORM */
   .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .form-group.full { grid-column: 1 / -1; }
@@ -88,7 +87,7 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
   @media (max-width: 850px) {
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .nav-links { display: none; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .carousel-wrapper { height: 350px; }
   }
 </style>
 </head>
@@ -126,6 +125,16 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
     <div class="label">The Artist</div>
     <h2 class="big-title">A Musician's <em>Musician</em></h2>
 
+    <div class="carousel-wrapper" id="fadeCarousel">
+      <div class="carousel-slide active"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett"></div>
+      <button class="carousel-btn prev" onclick="changeSlide(-1)">←</button>
+      <button class="carousel-btn next" onclick="changeSlide(1)">→</button>
+    </div>
+
     <div class="stats-grid">
       <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-label">Years Performing</div></div>
       <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Ronnie Scott's Performances</div></div>
@@ -153,7 +162,7 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
     <div class="two-col">
       <div>
         <p class="body-text">Denny Ilett is one of the UK's most celebrated jazz vocalists, renowned for his smooth, charismatic interpretations of the Great American Songbook. His acclaimed Frank Sinatra tribute show has delighted audiences at festivals across the South of England and beyond.</p>
-        <p class="body-text">Whether fronting a full 16-piece big band or a smaller combo, every performance is a masterclass in swing—capturing Sinatra's warmth while adding his own unmistakable artistic flair. As an arranger, Denny creates lush, rhythmically driven charts that honour tradition while speaking to contemporary audiences.</p>
+        <p class="body-text">Whether fronting a full 16-piece big band or a smaller combo, every performance is a masterclass in swing—capturing Sinatra's warmth while adding his own unmistakable artistic flair. Denny creates lush, rhythmically driven charts that honour tradition while speaking to contemporary audiences.</p>
         <div style="margin-top: 2rem; display: flex; gap: 15px; align-items: flex-end;">
            <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny9.jpg" style="width: 130px; border: 1px solid var(--border); filter: grayscale(100%);">
            <p style="font-size: 0.65rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 700;">Theatre · Festivals · Private</p>
@@ -229,15 +238,15 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
     <div class="label">Listen</div>
     <h2 class="big-title">Music & <em>Recordings</em></h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
-      <div style="background: var(--card); padding: 2.5rem; border: 1px solid transparent;">
+      <div style="background: var(--card); padding: 2.5rem;">
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">BANDCAMP</h4>
         <p style="color:var(--text); font-size:0.9rem;">Full albums and live recordings available to download.</p>
       </div>
-      <div style="background: var(--card); padding: 2.5rem; border: 1px solid transparent;">
+      <div style="background: var(--card); padding: 2.5rem;">
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">SPOTIFY</h4>
         <p style="color:var(--text); font-size:0.9rem;">Stream Denny Ilett and the Electric Lady Big Band.</p>
       </div>
-      <div style="background: var(--card); padding: 2.5rem; border: 1px solid transparent;">
+      <div style="background: var(--card); padding: 2.5rem;">
         <h4 style="color:var(--gold); letter-spacing:0.2em; font-size:0.75rem; margin-bottom:15px;">JTC GUITAR</h4>
         <p style="color:var(--text); font-size:0.9rem;">Explore acclaimed educational masterclasses.</p>
       </div>
@@ -266,10 +275,27 @@ I have integrated the **"Musician's Musician"** narrative you preferred into the
 </footer>
 
 <script>
+  // Navigation scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
   });
+
+  // Carousel Logic
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.carousel-slide');
+  
+  function showSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+  }
+
+  function changeSlide(step) {
+    showSlide(currentSlide + step);
+  }
+
+  // Auto-rotate every 5 seconds
+  setInterval(() => changeSlide(1), 5000);
 </script>
 </body>
 </html>
-```

@@ -93,7 +93,6 @@
     .nav-logo-img { height: 80px; }
     .nav-links { display: none; position: fixed; inset: 0; background: rgba(13,13,13,0.99); flex-direction: column; justify-content: center; gap: 2rem; z-index: 100; }
     .nav-links.open { display: flex; }
-    .nav-toggle { display: flex; }
     .two-col { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
   }
@@ -115,9 +114,6 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="elbb.html" class="glow-link">Electric Lady Big Band</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" onclick="toggleNav()">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
 <section class="hero">
@@ -146,24 +142,37 @@
 <section id="about" style="background:var(--dark)">
   <div class="section-inner">
     <div class="label">About</div>
-    <h2 class="big-title">A Musician's<em>Musician</em></h2>
-    <p class="body-text">Denny Ilett is one of the UK's most versatile and accomplished musicians — a self-taught guitarist, vocalist, bandleader, composer, arranger and teacher whose musical explorations span jazz, blues, big band, swing, rock, soul, funk and psychedelia.</p>
-    <p class="body-text">Based in Henley-on-Thames, Oxfordshire, Denny has spent over four decades performing and recording at the highest level. He has collaborated with a remarkable range of musicians including funk legend Pee Wee Ellis, conductor Charles Hazlewood, and celebrated New Orleans vocalist Lillian Boutté — with whom he toured globally for over two decades as musical director.</p>
-    <div class="stats-grid">
+    <h2 class="big-title">A Musician's <em>Musician</em></h2>
+
+    <div class="stats-grid" style="margin-bottom: 3rem;">
       <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-label">Years Performing</div></div>
-      <div class="stat-cell"><div class="stat-num">32</div><div class="stat-label">Sold-Out Ronnie Scott's Shows</div></div>
+      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Performances at Ronnie Scott's</div></div>
+      <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-label">Years as Musical Director</div></div>
+      <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">Piece Electric Lady Big Band</div></div>
+    </div>
+    
+    <div class="two-col">
+      <div>
+        <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
+        <p class="body-text">Based in Henley-on-Thames, Denny has spent over four decades performing at the highest level of the industry. His musical foundation was built on the bandstand, an organic "ear-first" approach that led to a storied 20-year tenure as the <strong>Musical Director for Lillian Boutté</strong>, the legendary New Orleans vocalist and official musical ambassador of the Crescent City.</p>
+      </div>
+      <div>
+        <p class="body-text">Beyond the stage, Denny is a pillar of the UK music community. As the co-founder and <strong>Artistic Director of the Bristol International Jazz & Blues Festival</strong>, he curates world-class talent and helps shape the creative direction of one of the country's premier musical events.</p>
+        <p class="body-text">He is also a dedicated educator and a familiar voice to guitarists worldwide through his masterclasses for JTC Guitar and his long-standing contributions to <em>Guitarist Magazine</em>.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="guitarist" style="background:var(--deep)">
   <div class="section-inner">
-    <div class="label">Guitarist</div>
-    <h2 class="big-title">Guitarist &<em>Arranger</em></h2>
+    <div class="label">Guitarist & Arranger</div>
+    <h2 class="big-title">Strings, Brass &<em>Psychedelia</em></h2>
     <div class="two-col">
       <div>
-        <p class="body-text">A self-taught guitarist with a voice entirely his own, Denny's playing draws on the deepest roots of jazz and blues. His intricate chords and smooth melodies bring a fresh perspective to classic material.</p>
-        <p class="body-text">As an arranger, Denny is one of the most versatile in the UK. His orchestral work extends beyond jazz — creating large-scale arrangements that seek the unexpected connection between musical worlds.</p>
+        <p class="body-text">A self-taught guitarist with a voice entirely his own, Denny's playing draws on the deepest roots of jazz and blues. His intricate chords and smooth melodies bring a fresh perspective to classic material, whether performing Gypsy Jazz or heavy rock.</p>
+        <p class="body-text">As an arranger, Denny is one of the most sought-after in the UK. His work with the <strong>Electric Lady Big Band</strong> reimagines the music of Jimi Hendrix through the lens of a jazz orchestra, seeking the unexpected connection between musical worlds.</p>
+        <p class="body-text">His collaborative portfolio features a "who’s who" of cross-genre excellence, including funk legend <strong>Pee Wee Ellis</strong>, conductor <strong>Charles Hazlewood</strong>, and members of <strong>Portishead</strong> and <strong>Goldfrapp</strong>.</p>
       </div>
       <div class="col-img">
         <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett Guitar">
@@ -204,9 +213,6 @@
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
   });
-  function toggleNav() {
-    document.getElementById('navLinks').classList.toggle('open');
-  }
 </script>
 </body>
 </html>

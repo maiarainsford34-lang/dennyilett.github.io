@@ -51,10 +51,10 @@
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
 
-  /* FADE CAROUSEL STYLES - RE-ENGINEERED TO SHOW WHOLE PHOTO */
+  /* CAROUSEL */
   .carousel-wrapper { 
     position: relative; 
-    height: 70vh; /* Responsive height based on screen size */
+    height: 70vh; 
     max-height: 700px;
     width: 100%; 
     margin: 2rem 0 4rem; 
@@ -78,7 +78,7 @@
     max-height: 100%; 
     width: auto;
     height: auto;
-    object-fit: contain; /* Strict instruction to NOT zoom */
+    object-fit: contain;
     display: block;
   }
   .carousel-btn { 
@@ -96,9 +96,7 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    transition: all 0.3s;
   }
-  .carousel-btn:hover { background: var(--gold); color: var(--dark); }
   .carousel-btn.prev { left: 1.5rem; }
   .carousel-btn.next { right: 1.5rem; }
 
@@ -118,9 +116,6 @@
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
 
-  .col-img { overflow: hidden; border: 1px solid var(--border); position: relative; }
-  .col-img img { width: 100%; height: auto; display: block; filter: brightness(0.9); }
-
   /* CONTACT FORM */
   .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .form-group.full { grid-column: 1 / -1; }
@@ -133,7 +128,6 @@
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .nav-links { display: none; }
     .carousel-wrapper { height: 50vh; }
-    .hero-content { left: 5%; bottom: 5%; }
   }
 </style>
 </head>
@@ -172,16 +166,16 @@
     <h2 class="big-title">A Musician's <em>Musician</em></h2>
 
     <div class="carousel-wrapper" id="fadeCarousel">
-      <div class="carousel-slide active"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny8.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny9.jpg" alt="Denny Ilett"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny10.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide active"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny8.jpeg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny9.jpg"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny10.jpg"></div>
       <button class="carousel-btn prev" onclick="changeSlide(-1)">←</button>
       <button class="carousel-btn next" onclick="changeSlide(1)">→</button>
     </div>

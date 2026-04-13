@@ -51,14 +51,56 @@
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
 
-  /* FADE CAROUSEL STYLES */
-  .carousel-wrapper { position: relative; height: 500px; width: 100%; margin: 2rem 0 4rem; background: #000; overflow: hidden; border: 1px solid var(--border); }
-  .carousel-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.5s ease-in-out; display: flex; align-items: center; justify-content: center; }
+  /* FADE CAROUSEL STYLES - RE-ENGINEERED TO SHOW WHOLE PHOTO */
+  .carousel-wrapper { 
+    position: relative; 
+    height: 70vh; /* Responsive height based on screen size */
+    max-height: 700px;
+    width: 100%; 
+    margin: 2rem 0 4rem; 
+    background: #000; 
+    overflow: hidden; 
+    border: 1px solid var(--border); 
+  }
+  .carousel-slide { 
+    position: absolute; 
+    inset: 0; 
+    opacity: 0; 
+    transition: opacity 1.2s ease-in-out; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    background: #000; 
+  }
   .carousel-slide.active { opacity: 1; z-index: 1; }
-  .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
-  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.5); border: 1px solid var(--gold); color: var(--gold); width: 44px; height: 44px; font-size: 1.2rem; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; }
-  .carousel-btn.prev { left: 1rem; }
-  .carousel-btn.next { right: 1rem; }
+  .carousel-slide img { 
+    max-width: 100%; 
+    max-height: 100%; 
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Strict instruction to NOT zoom */
+    display: block;
+  }
+  .carousel-btn { 
+    position: absolute; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: rgba(0,0,0,0.6); 
+    border: 1px solid var(--gold); 
+    color: var(--gold); 
+    width: 48px; 
+    height: 48px; 
+    font-size: 1.2rem; 
+    cursor: pointer; 
+    z-index: 10; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: all 0.3s;
+  }
+  .carousel-btn:hover { background: var(--gold); color: var(--dark); }
+  .carousel-btn.prev { left: 1.5rem; }
+  .carousel-btn.next { right: 1.5rem; }
 
   /* CONTENT STYLES */
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
@@ -76,6 +118,9 @@
   .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
   .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
 
+  .col-img { overflow: hidden; border: 1px solid var(--border); position: relative; }
+  .col-img img { width: 100%; height: auto; display: block; filter: brightness(0.9); }
+
   /* CONTACT FORM */
   .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
   .form-group.full { grid-column: 1 / -1; }
@@ -87,7 +132,8 @@
   @media (max-width: 850px) {
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .nav-links { display: none; }
-    .carousel-wrapper { height: 350px; }
+    .carousel-wrapper { height: 50vh; }
+    .hero-content { left: 5%; bottom: 5%; }
   }
 </style>
 </head>
@@ -130,7 +176,12 @@
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett"></div>
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg" alt="Denny Ilett"></div>
       <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny8.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny9.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny10.jpg" alt="Denny Ilett"></div>
       <button class="carousel-btn prev" onclick="changeSlide(-1)">←</button>
       <button class="carousel-btn next" onclick="changeSlide(1)">→</button>
     </div>
@@ -275,12 +326,10 @@
 </footer>
 
 <script>
-  // Navigation scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
   });
 
-  // Carousel Logic
   let currentSlide = 0;
   const slides = document.querySelectorAll('.carousel-slide');
   
@@ -294,7 +343,6 @@
     showSlide(currentSlide + step);
   }
 
-  // Auto-rotate every 5 seconds
   setInterval(() => changeSlide(1), 5000);
 </script>
 </body>

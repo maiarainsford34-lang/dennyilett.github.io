@@ -23,12 +23,20 @@
   body { background: var(--dark); color: var(--text); font-family: 'Lato', sans-serif; font-weight: 300; overflow-x: hidden; }
 
   /* NAVIGATION */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; 
+  nav { 
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; 
     padding: 1.5rem 2.5rem; 
-    background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: all 0.3s; }
+    background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: all 0.3s; 
+  }
   nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); padding: 0.8rem 2.5rem; }
-  .nav-brand { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo-img { height: 120px; width: auto; filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 5px rgba(200,160,32,0.3)); }
+  
+  .nav-brand { display: flex; align-items: center; text-decoration: none; z-index: 101; }
+  .nav-logo-img { 
+    height: 120px; width: auto; 
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 5px rgba(200,160,32,0.3)); 
+    transition: height 0.3s;
+  }
+  nav.scrolled .nav-logo-img { height: 80px; }
   
   .nav-links { display: flex; gap: 1.4rem; list-style: none; align-items: center; }
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
@@ -41,6 +49,23 @@
     border: 1px solid rgba(200,160,32,0.4);
     padding: 0.5rem 1rem;
     margin-left: 0.5rem;
+  }
+
+  /* MOBILE MENU TOGGLE */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 101;
+    padding: 10px;
+  }
+  .menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: var(--gold);
+    transition: 0.3s;
   }
 
   /* HERO */
@@ -137,9 +162,34 @@
 
   footer { background: #080808; border-top: 1px solid var(--border); padding: 4rem 2rem; text-align: center; color: #444; font-size: 0.75rem; letter-spacing: 0.1em; }
 
+  /* MOBILE RESPONSIVE UPDATES */
   @media (max-width: 850px) {
+    nav { padding: 1rem 1.5rem; justify-content: space-between; }
+    .nav-logo-img { height: 70px; } /* Smaller logo on mobile */
+    nav.scrolled .nav-logo-img { height: 60px; }
+
+    .menu-toggle { display: flex; } /* Show hamburger */
+    
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%; /* Hidden by default */
+      height: 100vh;
+      width: 70%;
+      background: rgba(13,13,13,0.98);
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      transition: 0.4s ease;
+      border-left: 1px solid var(--border);
+      padding: 2rem;
+    }
+
+    .nav-links.active { right: 0; } /* Slide in menu */
+    .nav-links a { font-size: 0.9rem; }
+    .glow-link { margin-left: 0; text-align: center; }
+
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
-    .nav-links { display: none; }
     .carousel-wrapper { height: 50vh; }
     .hero-content { bottom: 5%; left: 5%; }
     .stats-grid { grid-template-columns: 1fr; }
@@ -153,7 +203,14 @@
   <a href="#" class="nav-brand">
     <img class="nav-logo-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny-logo.jpg" alt="Denny Ilett">
   </a>
-  <ul class="nav-links">
+
+  <div class="menu-toggle" id="mobile-menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul class="nav-links" id="nav-list">
     <li><a href="#about">About</a></li>
     <li><a href="#singer">Singer</a></li>
     <li><a href="#guitarist">Guitarist</a></li>
@@ -327,12 +384,28 @@
 </footer>
 
 <script>
+  // Navbar Scroll effect
   window.addEventListener('scroll', () => {
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
   });
 
+  // Mobile Menu Logic
+  const menuToggle = document.getElementById('mobile-menu');
+  const navList = document.getElementById('nav-list');
+  
+  menuToggle.addEventListener('click', () => {
+    navList.classList.toggle('active');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navList.classList.remove('active');
+    });
+  });
+
+  // Carousel Logic
   const slides = document.querySelectorAll('.carousel-slide');
-  // Random start logic
   let currentSlide = Math.floor(Math.random() * slides.length);
   let autoSlideInterval;
 

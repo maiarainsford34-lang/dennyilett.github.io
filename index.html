@@ -25,18 +25,18 @@
   /* NAVIGATION */
   nav { 
     position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; 
-    padding: 1.5rem 2.5rem; 
+    padding: 1rem 2.5rem; 
     background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: all 0.3s; 
   }
-  nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); padding: 0.8rem 2.5rem; }
+  nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); padding: 0.6rem 2.5rem; }
   
   .nav-brand { display: flex; align-items: center; text-decoration: none; z-index: 101; }
   .nav-logo-img { 
-    height: 120px; width: auto; 
+    height: 100px; width: auto; 
     filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 5px rgba(200,160,32,0.3)); 
     transition: height 0.3s;
   }
-  nav.scrolled .nav-logo-img { height: 80px; }
+  nav.scrolled .nav-logo-img { height: 70px; }
   
   .nav-links { display: flex; gap: 1.4rem; list-style: none; align-items: center; }
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
@@ -51,39 +51,32 @@
     margin-left: 0.5rem;
   }
 
-  /* MOBILE MENU TOGGLE */
   .menu-toggle {
     display: none;
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
     z-index: 101;
-    padding: 10px;
+    padding: 5px;
   }
-  .menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background: var(--gold);
-    transition: 0.3s;
-  }
+  .menu-toggle span { display: block; width: 25px; height: 2px; background: var(--gold); transition: 0.3s; }
 
   /* HERO */
-  .hero { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #000; }
+  .hero { position: relative; height: 90vh; min-height: 500px; overflow: hidden; background: #000; }
   .hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; filter: brightness(0.55); }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,13,13,0.2) 0%, transparent 35%, rgba(13,13,13,0.75) 80%, var(--dark) 100%); }
-  .hero-content { position: absolute; bottom: 9%; left: 6%; z-index: 10; }
-  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.5rem, 9vw, 7rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.6rem; font-style: italic; }
+  .hero-content { position: absolute; bottom: 12%; left: 6%; z-index: 10; }
+  .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 600; line-height: 0.92; color: #fff; margin-bottom: 0.6rem; font-style: italic; }
   .hero-name .glow-strong { text-shadow: 0 0 20px rgba(255,220,120,0.8), 0 0 40px rgba(220,160,40,0.5); }
   .hero-name em { font-style: italic; color: var(--gold-light); display: block; }
 
   /* CAROUSEL */
   .carousel-wrapper { 
     position: relative; 
-    height: 70vh; 
-    max-height: 700px;
+    height: 60vh; 
+    max-height: 600px;
     width: 100%; 
-    margin: 2rem 0 4rem; 
+    margin: 1.5rem 0 2rem; 
     background: #000; 
     overflow: hidden; 
     border: 1px solid var(--border); 
@@ -96,104 +89,66 @@
     display: flex; 
     align-items: center; 
     justify-content: center; 
-    background: #000; 
   }
   .carousel-slide.active { opacity: 1; z-index: 1; }
-  .carousel-slide img { 
-    max-width: 100%; 
-    max-height: 100%; 
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-  }
+  .carousel-slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
   .carousel-btn { 
-    position: absolute; 
-    top: 50%; 
-    transform: translateY(-50%); 
-    background: rgba(0,0,0,0.6); 
-    border: 1px solid var(--gold); 
-    color: var(--gold); 
-    width: 48px; 
-    height: 48px; 
-    font-size: 1.2rem; 
-    cursor: pointer; 
-    z-index: 10; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    transition: background 0.3s;
+    position: absolute; top: 50%; transform: translateY(-50%); 
+    background: rgba(0,0,0,0.6); border: 1px solid var(--gold); color: var(--gold); 
+    width: 40px; height: 40px; cursor: pointer; z-index: 10; display: flex; align-items: center; justify-content: center; 
   }
-  .carousel-btn:hover { background: var(--gold); color: var(--dark); }
-  .carousel-btn.prev { left: 1.5rem; }
-  .carousel-btn.next { right: 1.5rem; }
 
   /* CONTENT STYLES */
-  .section-inner { max-width: 1100px; margin: 0 auto; padding: 6rem 2rem; }
+  .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
   .label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .big-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 600; color: #fff; line-height: 1.05; margin-bottom: 2rem; }
+  .big-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4.5vw, 3.5rem); font-weight: 600; color: #fff; line-height: 1.05; margin-bottom: 1.5rem; }
   .big-title em { font-style: italic; color: var(--gold-light); }
-  .body-text { font-size: 0.95rem; line-height: 1.85; color: #aaa; margin-bottom: 1.5rem; }
+  .body-text { font-size: 0.95rem; line-height: 1.7; color: #aaa; margin-bottom: 1.2rem; }
 
   /* GRIDS */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
   .col-img img { width: 100%; height: auto; border: 1px solid var(--border); filter: grayscale(0.5); }
-  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-top: 2rem; margin-bottom: 3rem; }
-  .stat-cell { padding: 2rem; border-bottom: 1px solid var(--border); }
-  .stat-cell:nth-child(odd) { border-right: 1px solid var(--border); }
-  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--gold); line-height: 1; }
-  .stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); margin: 2rem 0; }
+  .stat-cell { padding: 1.5rem; border-right: 1px solid var(--border); text-align: center; }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--gold); line-height: 1; }
+  .stat-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
 
-  /* TEACHING/MUSIC GRID */
-  .teaching-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 3rem; }
-  .teaching-card { background: var(--dark); padding: 2.5rem; height: 100%; transition: background 0.3s; }
-  .teaching-card:hover { background: var(--mid); }
-  .teaching-title { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
-  .teaching-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+  .teaching-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); margin-top: 2rem; }
+  .teaching-card { background: var(--dark); padding: 2rem; height: 100%; }
+  .teaching-title { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 8px; text-transform: uppercase; font-weight: 700; }
 
-  /* CONTACT FORM */
-  .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+  .contact-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.5rem; }
   .form-group.full { grid-column: 1 / -1; }
-  .form-input, .form-textarea { background: var(--card); border: 1px solid var(--border); color: #fff; padding: 1.2rem; width: 100%; font-family: inherit; font-size: 0.9rem; outline: none; transition: border 0.3s; }
-  .form-input:focus, .form-textarea:focus { border-color: var(--gold); }
-  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 3rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; transition: background 0.3s; }
-  .submit-btn:hover { background: var(--gold-light); }
+  .form-input, .form-textarea { background: var(--card); border: 1px solid var(--border); color: #fff; padding: 1rem; width: 100%; font-family: inherit; font-size: 0.9rem; outline: none; }
+  .submit-btn { background: var(--gold); color: var(--dark); border: none; padding: 1rem 2.5rem; cursor: pointer; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; }
 
-  footer { background: #080808; border-top: 1px solid var(--border); padding: 4rem 2rem; text-align: center; color: #444; font-size: 0.75rem; letter-spacing: 0.1em; }
+  footer { background: #080808; border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; color: #444; font-size: 0.75rem; }
 
-  /* MOBILE RESPONSIVE UPDATES */
+  /* MOBILE FIXES */
   @media (max-width: 850px) {
-    nav { padding: 1rem 1.5rem; justify-content: space-between; }
-    .nav-logo-img { height: 70px; } /* Smaller logo on mobile */
-    nav.scrolled .nav-logo-img { height: 60px; }
-
-    .menu-toggle { display: flex; } /* Show hamburger */
+    nav { padding: 0.8rem 1.5rem; }
+    .nav-logo-img { height: 60px; }
+    nav.scrolled .nav-logo-img { height: 50px; }
+    .menu-toggle { display: flex; }
     
     .nav-links {
-      position: fixed;
-      top: 0;
-      right: -100%; /* Hidden by default */
-      height: 100vh;
-      width: 70%;
-      background: rgba(13,13,13,0.98);
-      flex-direction: column;
-      justify-content: center;
-      gap: 2rem;
-      transition: 0.4s ease;
-      border-left: 1px solid var(--border);
-      padding: 2rem;
+      position: fixed; top: 0; right: -100%; height: 100vh; width: 75%;
+      background: rgba(13,13,13,0.99); flex-direction: column; justify-content: center;
+      gap: 1.5rem; transition: 0.4s ease; padding: 2rem;
     }
+    .nav-links.active { right: 0; }
 
-    .nav-links.active { right: 0; } /* Slide in menu */
-    .nav-links a { font-size: 0.9rem; }
-    .glow-link { margin-left: 0; text-align: center; }
-
-    .two-col { grid-template-columns: 1fr; gap: 2rem; }
-    .carousel-wrapper { height: 50vh; }
-    .hero-content { bottom: 5%; left: 5%; }
-    .stats-grid { grid-template-columns: 1fr; }
-    .stat-cell:nth-child(odd) { border-right: none; }
+    .hero { height: 75vh; }
+    .section-inner { padding: 3rem 1.5rem; } /* Reduced vertical gaps */
+    .two-col { grid-template-columns: 1fr; gap: 1.5rem; }
+    .carousel-wrapper { height: 45vh; margin: 1rem 0; }
+    
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .stat-cell { border-bottom: 1px solid var(--border); }
+    .stat-cell:nth-child(even) { border-right: none; }
+    .stat-cell:nth-last-child(-n+2) { border-bottom: none; }
   }
 </style>
 </head>
@@ -203,13 +158,7 @@
   <a href="#" class="nav-brand">
     <img class="nav-logo-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny-logo.jpg" alt="Denny Ilett">
   </a>
-
-  <div class="menu-toggle" id="mobile-menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
+  <div class="menu-toggle" id="mobile-menu"><span></span><span></span><span></span></div>
   <ul class="nav-links" id="nav-list">
     <li><a href="#about">About</a></li>
     <li><a href="#singer">Singer</a></li>
@@ -218,7 +167,7 @@
     <li><a href="#lessons">Lessons</a></li>
     <li><a href="#music">Music</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="elbb.html" class="glow-link">Electric Lady Big Band</a></li>
+    <li><a href="elbb.html" class="glow-link">ELBB</a></li>
   </ul>
 </nav>
 
@@ -227,8 +176,8 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <h1 class="hero-name"><span class="glow-strong">Denny</span><em>Ilett</em></h1>
-    <div style="margin-top:25px;">
-      <a href="elbb.html" style="padding: 1rem 2.5rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; display: inline-block;">Electric Lady Big Band</a>
+    <div style="margin-top:15px;">
+      <a href="elbb.html" style="padding: 0.8rem 2rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.2em; display: inline-block;">Electric Lady Big Band</a>
     </div>
   </div>
 </section>
@@ -239,35 +188,26 @@
     <h2 class="big-title">A Musician's <em>Musician</em></h2>
 
     <div class="carousel-wrapper" id="fadeCarousel">
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett Gallery 1"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett Gallery 2"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett Gallery 3"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny4.jpg" alt="Denny Ilett Gallery 4"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg" alt="Denny Ilett Gallery 5"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny6.jpg" alt="Denny Ilett Gallery 6"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett Gallery 7"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny8.jpg" alt="Denny Ilett Gallery 8"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="ELBB 1"></div>
-      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb2.jpeg" alt="ELBB 2"></div>
-      
-      <button class="carousel-btn prev" onclick="changeSlide(-1)">←</button>
-      <button class="carousel-btn next" onclick="changeSlide(1)">→</button>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny1.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny2.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett"></div>
+      <div class="carousel-slide"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/elbb1.jpg" alt="ELBB"></div>
+      <button class="carousel-btn prev" style="left:10px" onclick="changeSlide(-1)">←</button>
+      <button class="carousel-btn next" style="right:10px" onclick="changeSlide(1)">→</button>
     </div>
 
     <div class="stats-grid">
-      <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-label">Years Performing</div></div>
-      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Ronnie Scott's Performances</div></div>
-      <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-label">Years as Musical Director</div></div>
-      <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">Piece Electric Lady Big Band</div></div>
+      <div class="stat-cell"><div class="stat-num">40+</div><div class="stat-label">Years</div></div>
+      <div class="stat-cell"><div class="stat-num">60+</div><div class="stat-label">Ronnie Scott's</div></div>
+      <div class="stat-cell"><div class="stat-num">20+</div><div class="stat-label">Director</div></div>
+      <div class="stat-cell"><div class="stat-num">16</div><div class="stat-label">ELBB Piece</div></div>
     </div>
     
     <div class="two-col">
-      <div>
-        <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
-      </div>
-      <div>
-        <p class="body-text">He has collaborated with a remarkable range of musicians including funk legend Pee Wee Ellis, conductor Charles Hazlewood, and celebrated New Orleans vocalist Lillian Boutté — with whom he toured globally for over two decades as musical director.</p>
-      </div>
+      <p class="body-text">Denny Ilett is one of the UK’s most versatile figures in contemporary music. A self-taught guitarist and vocalist, his career spans from New Orleans blues to sophisticated big band arrangements with effortless authenticity.</p>
+      <p class="body-text">He has collaborated with funk legend Pee Wee Ellis and celebrated vocalist Lillian Boutté, touring globally for over two decades as a musical director and soloist.</p>
     </div>
   </div>
 </section>
@@ -278,162 +218,13 @@
     <h2 class="big-title">The Sinatra <em>Experience</em></h2>
     <div class="two-col">
       <div>
-        <p class="body-text">Denny Ilett is one of the UK's most celebrated jazz vocalists, renowned for his smooth, charismatic interpretations of the Great American Songbook. His acclaimed Frank Sinatra tribute show has delighted audiences worldwide.</p>
-        <p class="body-text">Whether fronting a full 16-piece big band or a smaller combo, every performance is a masterclass in swing—capturing Sinatra's warmth while adding his own unmistakable artistic flair.</p>
+        <p class="body-text">Renowned for his smooth interpretations of the Great American Songbook, Denny's Sinatra tribute captures the warmth and swing of the era with unmistakable artistic flair.</p>
       </div>
-      <div class="col-img">
-        <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Denny Ilett Performance">
-      </div>
+      <div class="col-img"><img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny7.jpg" alt="Performance"></div>
     </div>
   </div>
 </section>
 
 <section id="guitarist" style="background:var(--dark); border-top: 1px solid var(--border);">
     <div class="section-inner">
-      <div class="label">Guitarist</div>
-      <h2 class="big-title">Virtuosity & <em>Soul</em></h2>
-      <div class="two-col">
-        <div class="col-img">
-          <img src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny3.jpg" alt="Denny Ilett Guitarist">
-        </div>
-        <div>
-          <p class="body-text">From Gypsy Jazz to Blues and Bebop, Denny's guitar playing is anchored in deep tradition. His style blends the rhythmic sophistication of Django Reinhardt with the electric blues fire of the greats.</p>
-          <p class="body-text">As a regular contributor to Guitarist Magazine and a featured artist for JTC Guitar, Denny continues to influence the next generation of players with his unique "Jazz Demystification" philosophy.</p>
-        </div>
-      </div>
-    </div>
-</section>
-
-<section id="press" style="background:var(--deep); border-top: 1px solid var(--border);">
-    <div class="section-inner">
-      <div class="label">Accolades</div>
-      <h2 class="big-title">In the <em>Press</em></h2>
-      <div class="body-text" style="font-style: italic; border-left: 2px solid var(--gold); padding-left: 2rem; margin-bottom: 2rem;">
-        "A musician of formidable talent... Ilett’s arrangements are nothing short of breath-taking."
-      </div>
-      <div class="body-text" style="font-style: italic; border-left: 2px solid var(--gold); padding-left: 2rem;">
-        "One of the UK's most honest and technically gifted jazz guitarists."
-      </div>
-    </div>
-</section>
-
-<section id="lessons" style="background:var(--dark); border-top: 1px solid var(--border);">
-  <div class="section-inner">
-    <div class="label">Tuition</div>
-    <h2 class="big-title">Jazz Guitar <em>Lessons</em></h2>
-    <p class="body-text">Denny offers jazz guitar lessons from his base in Henley-on-Thames and online worldwide. His "Jazz Demystification" approach strips away complex theory to put the music and fretboard logic first.</p>
-    
-    <div class="teaching-grid">
-      <a href="https://jtcguitar.com/store/artist/denny-ilett" target="_blank" style="text-decoration: none; color: inherit;">
-        <div class="teaching-card">
-          <h4 class="teaching-title">JTC Guitar ↗</h4>
-          <p class="teaching-desc">Featured artist — Unlocking Jazz Standards & Blues Essentials masterclass series.</p>
-        </div>
-      </a>
-      <div class="teaching-card"><h4 class="teaching-title">University Level</h4><p class="teaching-desc">Bristol University & Bath Spa University — degree-level jazz guitar.</p></div>
-      <div class="teaching-card"><h4 class="teaching-title">International Guitar Foundation</h4><p class="teaching-desc">Summer school workshops and guest appearances.</p></div>
-      <div class="teaching-card"><h4 class="teaching-title">Global Masterclasses</h4><p class="teaching-desc">Europe, Australia & USA — Jazz Demystification workshops.</p></div>
-      <div class="teaching-card"><h4 class="teaching-title">Guitarist Magazine</h4><p class="teaching-desc">Regular contributor — columns on jazz, blues and forgotten guitar heroes.</p></div>
-      <div class="teaching-card"><h4 class="teaching-title">Clifton College, Bristol</h4><p class="teaching-desc">12 years as guitar tutor and ensemble lead.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="music" style="background:var(--deep); border-top: 1px solid var(--border);">
-  <div class="section-inner">
-    <div class="label">Listen</div>
-    <h2 class="big-title">Music & <em>Recordings</em></h2>
-    <div class="teaching-grid">
-      <div class="teaching-card">
-        <h4 class="teaching-title">BANDCAMP</h4>
-        <p class="teaching-desc">Full albums and live recordings available to download and support the artist directly.</p>
-      </div>
-      <div class="teaching-card">
-        <h4 class="teaching-title">SPOTIFY</h4>
-        <p class="teaching-desc">Stream Denny Ilett and the Electric Lady Big Band on all major platforms.</p>
-      </div>
-      <a href="https://jtcguitar.com/store/artist/denny-ilett" target="_blank" style="text-decoration: none; color: inherit;">
-        <div class="teaching-card">
-          <h4 class="teaching-title">JTC STORE ↗</h4>
-          <p class="teaching-desc">Explore professional educational masterclasses and deep-dive courses.</p>
-        </div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section id="contact" style="background:var(--dark); border-top: 1px solid var(--border);">
-  <div class="section-inner">
-    <div class="label">Contact</div>
-    <h2 class="big-title">Book a Show. <em>Start a Conversation.</em></h2>
-    <form action="https://formspree.io/f/mlgarazp" method="POST">
-      <div class="contact-form-grid">
-        <div class="form-group"><input class="form-input" type="text" name="name" placeholder="Your name" required></div>
-        <div class="form-group"><input class="form-input" type="email" name="email" placeholder="your@email.com" required></div>
-        <div class="form-group full"><input class="form-input" type="text" name="subject" placeholder="Booking / Press / General"></div>
-        <div class="form-group full"><textarea class="form-textarea" rows="5" name="message" placeholder="Tell us about your event..." required></textarea></div>
-      </div>
-      <button type="submit" class="submit-btn" style="margin-top:20px;">Send Message</button>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div style="margin-bottom: 10px;">DENNY ILETT</div>
-  <div>© 2026 · All Rights Reserved</div>
-</footer>
-
-<script>
-  // Navbar Scroll effect
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
-  });
-
-  // Mobile Menu Logic
-  const menuToggle = document.getElementById('mobile-menu');
-  const navList = document.getElementById('nav-list');
-  
-  menuToggle.addEventListener('click', () => {
-    navList.classList.toggle('active');
-  });
-
-  // Close menu when a link is clicked
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navList.classList.remove('active');
-    });
-  });
-
-  // Carousel Logic
-  const slides = document.querySelectorAll('.carousel-slide');
-  let currentSlide = Math.floor(Math.random() * slides.length);
-  let autoSlideInterval;
-
-  function initCarousel() {
-    if (slides.length > 0) {
-      slides[currentSlide].classList.add('active');
-      resetAutoSlide();
-    }
-  }
-
-  function showSlide(index) {
-    if (slides.length === 0) return;
-    slides[currentSlide].classList.remove('active');
-    currentSlide = (index + slides.length) % slides.length;
-    slides[currentSlide].classList.add('active');
-  }
-
-  function changeSlide(step) {
-    showSlide(currentSlide + step);
-    resetAutoSlide();
-  }
-
-  function resetAutoSlide() {
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(() => changeSlide(1), 5000);
-  }
-
-  initCarousel();
-</script>
-</body>
-</html>
+      <div

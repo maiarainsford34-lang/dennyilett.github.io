@@ -23,12 +23,26 @@
   body { background: var(--dark); color: var(--text); font-family: 'Lato', sans-serif; font-weight: 300; overflow-x: hidden; }
 
   /* NAVIGATION */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; 
+  nav { 
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100; 
+    display: flex; justify-content: space-between; align-items: center; 
     padding: 1.5rem 2.5rem; 
-    background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); transition: all 0.3s; }
+    background: linear-gradient(to bottom, rgba(13,13,13,0.97), transparent); 
+    transition: all 0.3s; 
+  }
   nav.scrolled { background: rgba(13,13,13,0.98); border-bottom: 1px solid var(--border); padding: 0.8rem 2.5rem; }
-  .nav-brand { display: flex; align-items: center; text-decoration: none; }
-  .nav-logo-img { height: 120px; width: auto; filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 5px rgba(200,160,32,0.3)); }
+  
+  .nav-brand { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+    flex-shrink: 0;
+  }
+  .nav-logo-img { 
+    height: 120px; 
+    width: auto; 
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1) drop-shadow(0 0 5px rgba(200,160,32,0.3)); 
+  }
   
   .nav-links { display: flex; gap: 1.4rem; list-style: none; align-items: center; }
   .nav-links a { color: rgba(224,216,200,0.8); text-decoration: none; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; transition: color 0.2s; }
@@ -41,6 +55,65 @@
     border: 1px solid rgba(200,160,32,0.4);
     padding: 0.5rem 1rem;
     margin-left: 0.5rem;
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+  .hamburger span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: var(--gold);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  /* MOBILE MENU OVERLAY */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,13,13,0.98);
+    z-index: 150;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    transition: color 0.2s;
+    padding: 0.5rem 1rem;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .mobile-glow {
+    color: var(--gold-light) !important;
+    border: 1px solid rgba(200,160,32,0.4);
+    padding: 0.8rem 2rem;
+    text-shadow: 0 0 10px rgba(200,160,32,0.6);
+    margin-top: 1rem;
   }
 
   /* HERO */
@@ -137,13 +210,21 @@
 
   footer { background: #080808; border-top: 1px solid var(--border); padding: 4rem 2rem; text-align: center; color: #444; font-size: 0.75rem; letter-spacing: 0.1em; }
 
+  /* MOBILE */
   @media (max-width: 850px) {
-    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    nav { padding: 1rem 1.2rem; }
+    nav.scrolled { padding: 0.7rem 1.2rem; }
+    .nav-logo-img { height: 70px; }
     .nav-links { display: none; }
-    .carousel-wrapper { height: 50vh; }
+    .hamburger { display: flex; }
+    .two-col { grid-template-columns: 1fr; gap: 2rem; }
+    .carousel-wrapper { height: 50vw; min-height: 220px; }
     .hero-content { bottom: 5%; left: 5%; }
     .stats-grid { grid-template-columns: 1fr; }
     .stat-cell:nth-child(odd) { border-right: none; }
+    .contact-form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: 1; }
+    .section-inner { padding: 4rem 1.2rem; }
   }
 </style>
 </head>
@@ -163,7 +244,24 @@
     <li><a href="#contact">Contact</a></li>
     <li><a href="elbb.html" class="glow-link">Electric Lady Big Band</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#singer" onclick="closeMobileMenu()">Singer</a>
+  <a href="#guitarist" onclick="closeMobileMenu()">Guitarist</a>
+  <a href="#press" onclick="closeMobileMenu()">Press</a>
+  <a href="#lessons" onclick="closeMobileMenu()">Lessons</a>
+  <a href="#music" onclick="closeMobileMenu()">Music</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+  <a href="elbb.html" class="mobile-glow">Electric Lady Big Band</a>
+</div>
 
 <section class="hero">
   <img class="hero-img" src="https://maiarainsford34-lang.github.io/dennyilett.github.io/images/denny5.jpg" alt="Denny Ilett">
@@ -206,7 +304,7 @@
     
     <div class="two-col">
       <div>
-        <p class="body-text">Denny Ilett is one of the UK’s most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny’s career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
+        <p class="body-text">Denny Ilett is one of the UK's most versatile and accomplished figures in contemporary music. A self-taught guitarist, vocalist, and educator, Denny's career is defined by a rare ability to inhabit diverse musical worlds—from the grit of New Orleans blues to the sophisticated arrangements of the big band era—with effortless authenticity.</p>
       </div>
       <div>
         <p class="body-text">He has collaborated with a remarkable range of musicians including funk legend Pee Wee Ellis, conductor Charles Hazlewood, and celebrated New Orleans vocalist Lillian Boutté — with whom he toured globally for over two decades as musical director.</p>
@@ -252,7 +350,7 @@
       <div class="label">Accolades</div>
       <h2 class="big-title">In the <em>Press</em></h2>
       <div class="body-text" style="font-style: italic; border-left: 2px solid var(--gold); padding-left: 2rem; margin-bottom: 2rem;">
-        "A musician of formidable talent... Ilett’s arrangements are nothing short of breath-taking."
+        "A musician of formidable talent... Ilett's arrangements are nothing short of breath-taking."
       </div>
       <div class="body-text" style="font-style: italic; border-left: 2px solid var(--gold); padding-left: 2rem;">
         "One of the UK's most honest and technically gifted jazz guitarists."
@@ -287,14 +385,18 @@
     <div class="label">Listen</div>
     <h2 class="big-title">Music & <em>Recordings</em></h2>
     <div class="teaching-grid">
-      <div class="teaching-card">
-        <h4 class="teaching-title">BANDCAMP</h4>
-        <p class="teaching-desc">Full albums and live recordings available to download and support the artist directly.</p>
-      </div>
-      <div class="teaching-card">
-        <h4 class="teaching-title">SPOTIFY</h4>
-        <p class="teaching-desc">Stream Denny Ilett and the Electric Lady Big Band on all major platforms.</p>
-      </div>
+      <a href="https://dennyilett.bandcamp.com" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="teaching-card">
+          <h4 class="teaching-title">BANDCAMP ↗</h4>
+          <p class="teaching-desc">Full albums and live recordings available to download and support the artist directly.</p>
+        </div>
+      </a>
+      <a href="https://open.spotify.com/artist/3nFTtz79LqNBpyDYjBgpzC" target="_blank" style="text-decoration: none; color: inherit;">
+        <div class="teaching-card">
+          <h4 class="teaching-title">SPOTIFY ↗</h4>
+          <p class="teaching-desc">Stream the Electric Lady Big Band on Spotify.</p>
+        </div>
+      </a>
       <a href="https://jtcguitar.com/store/artist/denny-ilett" target="_blank" style="text-decoration: none; color: inherit;">
         <div class="teaching-card">
           <h4 class="teaching-title">JTC STORE ↗</h4>
@@ -331,8 +433,24 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
   });
 
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  function closeMobileMenu() {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Carousel
   const slides = document.querySelectorAll('.carousel-slide');
-  // Random start logic
   let currentSlide = Math.floor(Math.random() * slides.length);
   let autoSlideInterval;
 

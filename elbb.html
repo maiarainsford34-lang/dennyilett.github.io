@@ -50,6 +50,9 @@
   
   .btn-gold { padding: 0.8rem 2rem; background: var(--gold); color: var(--dark); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; display: inline-block; }
   .btn-outline { padding: 0.8rem 2rem; border: 1px solid rgba(200,160,32,0.6); color: var(--gold); text-decoration: none; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; display: inline-block; }
+  .hero-ticket-panel { position: absolute; right: 6%; bottom: 9%; z-index: 12; width: min(320px, 86vw); padding: 1.25rem; background: rgba(13,13,13,0.88); border: 1px solid rgba(200,160,32,0.45); box-shadow: 0 18px 45px rgba(0,0,0,0.35); }
+  .hero-ticket-note { margin-bottom: 0.9rem; color: rgba(224,216,200,0.88); font-size: 0.78rem; letter-spacing: 0.08em; line-height: 1.6; }
+  .hero-ticket-panel .btn-gold { width: 100%; text-align: center; }
 
   .section-inner { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
   .label { font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
@@ -80,19 +83,30 @@
   .member-instrument { font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem; }
   .member-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: #fff; }
 
+  .reviews-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; margin-top: 2.5rem; }
+  .review-card { background: var(--card); border: 1px solid var(--border); padding: 1.4rem 1.2rem; min-height: 100%; }
+  .review-quote { font-family: "Cormorant Garamond", serif; font-size: 1.2rem; line-height: 1.35; color: #fff; margin-bottom: 1rem; }
+  .review-source { font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+  .review-link { color: rgba(224,216,200,0.8); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; }
+  .review-link:hover { color: var(--gold); }
+
   footer { background: #080808; border-top: 1px solid var(--border); padding: 2.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
   .footer-copy { font-size: 0.72rem; color: #444; width: 100%; text-align: center; margin-top: 0.5rem; }
 
   @media (max-width: 900px) {
     .members-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-logo-img { height: 80px; }
   }
 
   @media (max-width: 768px) {
     .nav-links { display: none; }
+    .hero { overflow: visible; margin-bottom: 7rem; }
+    .hero-ticket-panel { left: 2rem; right: 2rem; bottom: -5.5rem; width: auto; }
     .stats-grid { grid-template-columns: 1fr 1fr; }
     .two-col { grid-template-columns: 1fr; gap: 2rem; }
     .members-grid { grid-template-columns: 1fr; }
+    .reviews-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -124,6 +138,10 @@
       <a href="index.html#contact" class="btn-gold">Book the Band</a>
       <a href="https://dennyilett.bandcamp.com" target="_blank" class="btn-outline">Listen on Bandcamp</a>
     </div>
+  </div>
+  <div class="hero-ticket-panel">
+    <p class="hero-ticket-note">Four shows at Ronnie Scott’s, 5–6 August 2026</p>
+    <a href="https://www.ronniescotts.co.uk/find-a-show/electric-lady-big-band" target="_blank" rel="noopener noreferrer" class="btn-gold">Book Ronnie Scott’s</a>
   </div>
 </section>
 
@@ -158,6 +176,40 @@
 </section>
 
 <section style="background:var(--deep)">
+  <div class="section-inner review-section">
+    <div class="label">Reviews</div>
+    <h2 class="big-title">Reviews</h2>
+    <div class="reviews-grid">
+      <article class="review-card">
+        <p class="review-quote">“Played with passion and precision.”</p>
+        <div class="review-source">The Live Review</div>
+        <a class="review-link" href="https://thelivereview.co.uk/denny-ilett-electric-lady-big-band-review/" target="_blank" rel="noopener noreferrer">Read full review</a>
+      </article>
+      <article class="review-card">
+        <p class="review-quote">“A fantastic bursting sound that enveloped the audience.”</p>
+        <div class="review-source">UK Jazz News</div>
+        <a class="review-link" href="https://ukjazznews.com/electric-lady-big-band-at-ronnie-scotts/" target="_blank" rel="noopener noreferrer">Read full review</a>
+      </article>
+      <article class="review-card">
+        <p class="review-quote">“More than just a Jimi Hendrix ‘experience’.”</p>
+        <div class="review-source">UK Jazz News</div>
+        <a class="review-link" href="https://ukjazznews.com/electric-lady-big-band-at-ronnie-scotts/" target="_blank" rel="noopener noreferrer">Read full review</a>
+      </article>
+      <article class="review-card">
+        <p class="review-quote">“A unique and heartfelt testimony to the music and legacy of Jimi Hendrix.”</p>
+        <div class="review-source">London Jazz News</div>
+        <a class="review-link" href="https://londonjazznews.com/2019/09/05/electric-lady-big-band-electric-lady-big-band/" target="_blank" rel="noopener noreferrer">Read full review</a>
+      </article>
+      <article class="review-card">
+        <p class="review-quote">“A 16-piece band, comprised of leading jazz improvisers.”</p>
+        <div class="review-source">Spinning Platters</div>
+        <a class="review-link" href="https://spinningplatters.com/show-review-electric-lady-big-band-bristol-jazz-and-blues-festival-united-kingdom-3-18-18/" target="_blank" rel="noopener noreferrer">Read full review</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--deep)">
   <div class="section-inner">
     <div class="label">Live</div>
     <h2 class="big-title">An explosive<em>live experience</em></h2>
@@ -180,7 +232,7 @@
     <div class="members-grid">
       <div class="member-card"><div class="member-instrument">Guitar / Vocals / Leader</div><div class="member-name">Denny Ilett</div></div>
       <div class="member-card"><div class="member-instrument">Bass Guitar</div><div class="member-name">Laurence Cottle</div></div>
-      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Iain Bellamy</div></div>
+      <div class="member-card"><div class="member-instrument">Saxophone</div><div class="member-name">Iain Ballamy</div></div>
       <div class="member-card"><div class="member-instrument">Trumpet</div><div class="member-name">Simon Gardner</div></div>
       <div class="member-card"><div class="member-instrument">Trombone</div><div class="member-name">Winston Rollins</div></div>
       <div class="member-card"><div class="member-instrument">Drums</div><div class="member-name">Daisy Palmer</div></div>
@@ -189,6 +241,7 @@
     </div>
   </div>
 </section>
+
 
 <footer>
   <div class="footer-copy">© 2026 Denny Ilett · All Rights Reserved</div>
